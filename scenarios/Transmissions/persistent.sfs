@@ -736,10 +736,10 @@ GAME
 	FLIGHTSTATE
 	{
 		version = 1.7.3
-		UT = 15147.238733514863
-		activeVessel = 0
+		UT = 15201.018733516037
+		activeVessel = 18
 		mapViewFiltering = 5118
-		commNetUIModeTracking = None
+		commNetUIModeTracking = Network
 		commNetUIModeFlight = VesselLinks
 		VESSEL
 		{
@@ -57021,18 +57021,18 @@ GAME
 			landedAt = 
 			displaylandedAt = 
 			splashed = False
-			met = 42.320000000923756
+			met = 7940.0083832972468
 			lct = 7261.0103502187903
-			lastUT = 7303.3303502197141
-			distanceTraveled = 0
+			lastUT = 15201.018733516037
+			distanceTraveled = 6032.8761932157004
 			root = 0
-			lat = 1.3667652939269741
-			lon = 18.053607046381558
-			alt = 899645.04330642521
-			hgt = -1
-			nrm = -0.0128919408,-0.999038398,0.0419058502
-			rot = 0.0552308559,0.136459172,-0.719606042,-0.678598344
-			CoM = 0.000309487805,0.565507531,0.00739389658
+			lat = 3.5756595110445852
+			lon = 61.040004529513475
+			alt = 183434.99698676722
+			hgt = 183435
+			nrm = 0.119995415,-0.697187066,0.706775248
+			rot = 0.0516873784,0.133063763,-0.719878972,-0.679261923
+			CoM = 0.00031459704,0.584489942,0.00752389105
 			stg = 1
 			prst = False
 			ref = 499514688
@@ -57044,19 +57044,19 @@ GAME
 			OverrideActionControl = 0,0,0,0
 			OverrideAxisControl = 0,0,0,0
 			OverrideGroupNames = ,,,
-			altDispState = DEFAULT
-			cPch = 
-			cHdg = 
+			altDispState = ASL
+			cPch = 0.36
+			cHdg = 4.204001
 			cMod = 0
 			ORBIT
 			{
-				SMA = 751628.34527601977
-				ECC = 0.47799998168201968
-				INC = 28.599999827998491
-				LPE = 359.99999914622634
-				LAN = 0.66990161044242313
-				MNA = 3.017712708591858
-				EPH = 7303.3303502197141
+				SMA = 751628.76226944593
+				ECC = 0.47800018630151753
+				INC = 28.600000208389265
+				LPE = 3.5015129822046806E-05
+				LAN = 0.66988869047656863
+				MNA = 0.040606723853107284
+				EPH = 15201.018733516037
 				REF = 16
 			}
 			PART
@@ -57085,8 +57085,8 @@ GAME
 				attN = bottom, 27
 				mass = 0.200000003
 				shielded = False
-				temp = 306.82465096046906
-				tempExt = 305.9612511858133
+				temp = 88.556121322362117
+				tempExt = 88.645801597237607
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57095,7 +57095,7 @@ GAME
 				autostrutMode = Off
 				rigidAttachment = False
 				flag = Squad/Flags/default
-				rTrf = HECS2.ProbeCore
+				rTrf = _default
 				modCost = 0
 				EVENTS
 				{
@@ -57110,6 +57110,7 @@ GAME
 				{
 					name = ModuleDataTransmitter
 					isEnabled = True
+					xmitIncomplete = False
 					stagingEnabled = True
 					canComm = True
 					EVENTS
@@ -57117,6 +57118,11 @@ GAME
 					}
 					ACTIONS
 					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57128,12 +57134,21 @@ GAME
 					isEnabled = True
 					hibernation = False
 					hibernateOnWarp = False
+					activeControlPointName = _default
 					stagingEnabled = True
 					EVENTS
 					{
 					}
 					ACTIONS
 					{
+						MakeReferenceToggle
+						{
+							actionGroup = None
+						}
+						HibernateToggle
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57153,6 +57168,22 @@ GAME
 					}
 					ACTIONS
 					{
+						CycleAction
+						{
+							actionGroup = None
+						}
+						Activate
+						{
+							actionGroup = None
+						}
+						Deactivate
+						{
+							actionGroup = None
+						}
+						Toggle
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57184,6 +57215,10 @@ GAME
 					}
 					ACTIONS
 					{
+						OpenKerbNetAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57199,6 +57234,10 @@ GAME
 					}
 					ACTIONS
 					{
+						CollectAllAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57262,8 +57301,8 @@ GAME
 				attN = top, 2
 				mass = 0.25
 				shielded = False
-				temp = 306.94510679121169
-				tempExt = 306.07958671116091
+				temp = 88.510302386845026
+				tempExt = 88.526110097226677
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57310,8 +57349,8 @@ GAME
 				attN = top, 1
 				mass = 0.25
 				shielded = False
-				temp = 306.96834580967123
-				tempExt = 306.1041924649943
+				temp = 88.509757371526646
+				tempExt = 88.50819167677021
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57357,8 +57396,8 @@ GAME
 				attN = bottom, 2
 				mass = 0.649999976
 				shielded = False
-				temp = 306.95924441764538
-				tempExt = 306.11309219893269
+				temp = 88.509707960738041
+				tempExt = 88.506318931435331
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57382,6 +57421,7 @@ GAME
 				{
 					name = ModuleDataTransmitter
 					isEnabled = True
+					xmitIncomplete = False
 					stagingEnabled = True
 					canComm = True
 					EVENTS
@@ -57389,6 +57429,10 @@ GAME
 					}
 					ACTIONS
 					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57442,8 +57486,8 @@ GAME
 				srfN = srfAttach, 1
 				mass = 0.0399999991
 				shielded = False
-				temp = 306.92160694307751
-				tempExt = 306.07246898910495
+				temp = 88.510320129846164
+				tempExt = 88.513677512750903
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57479,6 +57523,21 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ExtendAction
+						{
+							actionGroup = None
+							active = False
+						}
+						RetractAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57512,8 +57571,8 @@ GAME
 				srfN = srfAttach, 1
 				mass = 0.0399999991
 				shielded = False
-				temp = 306.92160694307751
-				tempExt = 306.07246898910495
+				temp = 88.510313426602664
+				tempExt = 88.51357792055461
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57549,6 +57608,21 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ExtendAction
+						{
+							actionGroup = None
+							active = False
+						}
+						RetractAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57582,8 +57656,8 @@ GAME
 				srfN = srfAttach, 1
 				mass = 0.0399999991
 				shielded = False
-				temp = 306.92168327512195
-				tempExt = 306.07427838148743
+				temp = 88.510313426602664
+				tempExt = 88.51357792055461
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57619,6 +57693,21 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ExtendAction
+						{
+							actionGroup = None
+							active = False
+						}
+						RetractAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57652,8 +57741,8 @@ GAME
 				srfN = srfAttach, 1
 				mass = 0.0399999991
 				shielded = False
-				temp = 306.92160694307751
-				tempExt = 306.07246898910495
+				temp = 88.510313426602664
+				tempExt = 88.51357792055461
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57689,6 +57778,21 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ExtendAction
+						{
+							actionGroup = None
+							active = False
+						}
+						RetractAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -57721,8 +57825,8 @@ GAME
 				attN = top, 9
 				mass = 0.375
 				shielded = False
-				temp = 307.37394284190918
-				tempExt = 306.34260349980497
+				temp = 88.511208648152532
+				tempExt = 88.547142776845945
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57769,8 +57873,8 @@ GAME
 				attN = bottom, 8
 				mass = 0.00100000005
 				shielded = False
-				temp = 301.98139386027111
-				tempExt = 301.58621145226397
+				temp = 88.512532496318073
+				tempExt = 88.523061911102332
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57816,8 +57920,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.200000003
 				shielded = False
-				temp = 306.07927603616616
-				tempExt = 305.27059344258271
+				temp = 88.510404393295403
+				tempExt = 88.509698326400738
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57871,7 +57975,6 @@ GAME
 				{
 					name = ModuleAnimationGroup
 					isEnabled = True
-					_isActive = False
 					isDeployed = True
 					stagingEnabled = True
 					EVENTS
@@ -57923,8 +58026,8 @@ GAME
 				attN = bottom, 9
 				mass = 0.00100000005
 				shielded = False
-				temp = 301.90844202499687
-				tempExt = 301.38723052539598
+				temp = 88.513436564140733
+				tempExt = 88.516056563814388
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -57971,8 +58074,8 @@ GAME
 				attN = bottom, 11
 				mass = 0.00100000005
 				shielded = False
-				temp = 301.8256222680676
-				tempExt = 301.29409829215365
+				temp = 88.514028121529762
+				tempExt = 88.516217912829021
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58019,8 +58122,8 @@ GAME
 				attN = top, 14
 				mass = 0.0500000007
 				shielded = False
-				temp = 307.12502100439156
-				tempExt = 306.29241080591027
+				temp = 88.511038325417985
+				tempExt = 88.52903994640144
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58054,6 +58157,22 @@ GAME
 					}
 					ACTIONS
 					{
+						CycleAction
+						{
+							actionGroup = None
+						}
+						Activate
+						{
+							actionGroup = None
+						}
+						Deactivate
+						{
+							actionGroup = None
+						}
+						Toggle
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58086,8 +58205,8 @@ GAME
 				attN = top, 15
 				mass = 0.0500000007
 				shielded = False
-				temp = 307.09489689561423
-				tempExt = 306.23940966385334
+				temp = 88.510817586093395
+				tempExt = 88.516781363290306
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58121,6 +58240,22 @@ GAME
 					}
 					ACTIONS
 					{
+						CycleAction
+						{
+							actionGroup = None
+						}
+						Activate
+						{
+							actionGroup = None
+						}
+						Deactivate
+						{
+							actionGroup = None
+						}
+						Toggle
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58152,8 +58287,8 @@ GAME
 				attN = bottom, 14
 				mass = 0.100000001
 				shielded = False
-				temp = 307.05172949255279
-				tempExt = 306.20866686418123
+				temp = 88.510862267892122
+				tempExt = 88.513501167097928
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58176,7 +58311,7 @@ GAME
 				MODULE
 				{
 					name = ModuleGPS
-					isEnabled = False
+					isEnabled = True
 					stagingEnabled = True
 					EVENTS
 					{
@@ -58191,7 +58326,7 @@ GAME
 				MODULE
 				{
 					name = ModuleResourceScanner
-					isEnabled = False
+					isEnabled = True
 					stagingEnabled = True
 					EVENTS
 					{
@@ -58226,8 +58361,7 @@ GAME
 				{
 					name = ModuleAnimationGroup
 					isEnabled = True
-					_isActive = False
-					isDeployed = False
+					isDeployed = True
 					stagingEnabled = True
 					EVENTS
 					{
@@ -58278,8 +58412,8 @@ GAME
 				attN = top, 17
 				mass = 0.375
 				shielded = False
-				temp = 307.24736450558549
-				tempExt = 305.24429190406426
+				temp = 88.511298125051468
+				tempExt = 88.549689904922573
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58326,8 +58460,8 @@ GAME
 				attN = bottom, 16
 				mass = 0.00100000005
 				shielded = False
-				temp = 303.93424561113494
-				tempExt = 302.82820323332515
+				temp = 88.511512775537597
+				tempExt = 88.521306807378551
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58372,8 +58506,8 @@ GAME
 				srfN = srfAttach, 17
 				mass = 0.300000012
 				shielded = False
-				temp = 305.67340532761983
-				tempExt = 300.6348664953469
+				temp = 88.510944620623818
+				tempExt = 88.508979546568597
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58399,7 +58533,7 @@ GAME
 					isEnabled = True
 					efficiencyMult = 1
 					launchUT = 7261.0103502187903
-					currentRotation = (-0.641987026, -0.64198494, -0.296407282, 0.296396345)
+					currentRotation = (-0.452717096, -0.452705055, 0.543187559, -0.543187559)
 					storedAnimationTime = 0
 					storedAnimationSpeed = 0
 					deployState = EXTENDED
@@ -58453,8 +58587,8 @@ GAME
 				attN = bottom, 16
 				mass = 0.00100000005
 				shielded = False
-				temp = 303.93245298797933
-				tempExt = 302.82632745773589
+				temp = 88.510728070126248
+				tempExt = 88.516560079268643
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58499,8 +58633,8 @@ GAME
 				srfN = srfAttach, 19
 				mass = 0.300000012
 				shielded = False
-				temp = 305.67221259817944
-				tempExt = 300.63149244341878
+				temp = 88.510983968329313
+				tempExt = 88.509395896737161
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58526,7 +58660,7 @@ GAME
 					isEnabled = True
 					efficiencyMult = 1
 					launchUT = 7261.0103502187903
-					currentRotation = (0.641988397, 0.641983569, -0.296401948, 0.29640165)
+					currentRotation = (0.452712387, 0.452709496, 0.543189764, -0.543185592)
 					storedAnimationTime = 0
 					storedAnimationSpeed = 0
 					deployState = EXTENDED
@@ -58580,8 +58714,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.00499999989
 				shielded = False
-				temp = 306.8725755794103
-				tempExt = 306.02275129384577
+				temp = 88.528240675490309
+				tempExt = 88.602960792059804
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58615,6 +58749,18 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+						}
+						ExtendAction
+						{
+							actionGroup = None
+						}
+						RetractAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58624,6 +58770,7 @@ GAME
 				{
 					name = ModuleDataTransmitter
 					isEnabled = True
+					xmitIncomplete = False
 					stagingEnabled = True
 					canComm = True
 					EVENTS
@@ -58631,6 +58778,10 @@ GAME
 					}
 					ACTIONS
 					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58663,8 +58814,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.00499999989
 				shielded = False
-				temp = 306.87372225963804
-				tempExt = 306.02544084848012
+				temp = 88.528021576186177
+				tempExt = 88.601742739813659
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58698,6 +58849,18 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+						}
+						ExtendAction
+						{
+							actionGroup = None
+						}
+						RetractAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58707,6 +58870,7 @@ GAME
 				{
 					name = ModuleDataTransmitter
 					isEnabled = True
+					xmitIncomplete = False
 					stagingEnabled = True
 					canComm = True
 					EVENTS
@@ -58714,6 +58878,10 @@ GAME
 					}
 					ACTIONS
 					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58745,8 +58913,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.0700000003
 				shielded = False
-				temp = 307.16179128049305
-				tempExt = 306.16187097193171
+				temp = 88.514192509900141
+				tempExt = 88.590144654661685
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58780,6 +58948,18 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+						}
+						ExtendAction
+						{
+							actionGroup = None
+						}
+						RetractAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58789,6 +58969,7 @@ GAME
 				{
 					name = ModuleDataTransmitter
 					isEnabled = True
+					xmitIncomplete = False
 					stagingEnabled = True
 					canComm = True
 					EVENTS
@@ -58796,6 +58977,10 @@ GAME
 					}
 					ACTIONS
 					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58847,8 +59032,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.0700000003
 				shielded = False
-				temp = 307.1617912749366
-				tempExt = 306.1618703201674
+				temp = 88.514278185674783
+				tempExt = 88.591052619232812
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58882,6 +59067,18 @@ GAME
 					}
 					ACTIONS
 					{
+						ExtendPanelsAction
+						{
+							actionGroup = None
+						}
+						ExtendAction
+						{
+							actionGroup = None
+						}
+						RetractAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58891,6 +59088,7 @@ GAME
 				{
 					name = ModuleDataTransmitter
 					isEnabled = True
+					xmitIncomplete = False
 					stagingEnabled = True
 					canComm = True
 					EVENTS
@@ -58898,6 +59096,10 @@ GAME
 					}
 					ACTIONS
 					{
+						StartTransmissionAction
+						{
+							actionGroup = None
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58951,8 +59153,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.0799999982
 				shielded = False
-				temp = 307.21596186095917
-				tempExt = 306.24947790842594
+				temp = 90.188367898781379
+				tempExt = 89.216420373917202
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -58984,6 +59186,21 @@ GAME
 					}
 					ACTIONS
 					{
+						ToggleAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ActivateAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ShutdownAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -58994,9 +59211,9 @@ GAME
 					name = ModuleCoreHeat
 					isEnabled = True
 					CoreTempGoalAdjustment = 0
-					CoreThermalEnergy = 15848.527072112063
+					CoreThermalEnergy = 382794.48265377712
 					stagingEnabled = True
-					lastUpdateTime = 7303.3303502197141
+					lastUpdateTime = 15201.018733516037
 					EVENTS
 					{
 					}
@@ -59035,8 +59252,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.0799999982
 				shielded = False
-				temp = 307.21605108627165
-				tempExt = 306.24954359240689
+				temp = 90.1882334216521
+				tempExt = 89.214917298966384
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59068,6 +59285,21 @@ GAME
 					}
 					ACTIONS
 					{
+						ToggleAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ActivateAction
+						{
+							actionGroup = None
+							active = False
+						}
+						ShutdownAction
+						{
+							actionGroup = None
+							active = False
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -59078,9 +59310,9 @@ GAME
 					name = ModuleCoreHeat
 					isEnabled = True
 					CoreTempGoalAdjustment = 0
-					CoreThermalEnergy = 15848.527072112063
+					CoreThermalEnergy = 382794.48265377712
 					stagingEnabled = True
-					lastUpdateTime = 7303.3303502197141
+					lastUpdateTime = 15201.018733516037
 					EVENTS
 					{
 					}
@@ -59118,8 +59350,8 @@ GAME
 				attN = bottom, 28
 				mass = 0.0500000007
 				shielded = False
-				temp = 307.16274618365964
-				tempExt = 306.18599686890121
+				temp = 88.512968864827585
+				tempExt = 88.537052903778289
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59177,8 +59409,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.25
 				shielded = False
-				temp = 307.20830098504933
-				tempExt = 306.26236597065883
+				temp = 88.510700323546502
+				tempExt = 88.52744703205461
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59202,6 +59434,8 @@ GAME
 				{
 					name = ModuleEnginesFX
 					isEnabled = True
+					independentThrottle = False
+					independentThrottlePercentage = 0
 					staged = False
 					flameout = False
 					EngineIgnited = False
@@ -59209,12 +59443,52 @@ GAME
 					currentThrottle = 0
 					thrustPercentage = 100
 					manuallyOverridden = False
+					includeinDVCalcs = False
 					stagingEnabled = True
 					EVENTS
 					{
 					}
 					ACTIONS
 					{
+						OnAction
+						{
+							actionGroup = None
+						}
+						ShutdownAction
+						{
+							actionGroup = None
+						}
+						ActivateAction
+						{
+							actionGroup = None
+						}
+						ToggleThrottle
+						{
+							actionGroup = None
+						}
+					}
+					AXISGROUPS
+					{
+						independentThrottlePercentage
+						{
+							axisGroup = None
+							axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							axisInverted = None
+							overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+						}
+						thrustPercentage
+						{
+							axisGroup = None
+							axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							axisInverted = None
+							overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+							overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+						}
 					}
 					UPGRADESAPPLIED
 					{
@@ -59277,10 +59551,10 @@ GAME
 				sym = 31
 				sym = 32
 				srfN = srfAttach, 27
-				mass = 0.0314299986
+				mass = 0.0135000004
 				shielded = False
-				temp = 307.12494611489825
-				tempExt = 306.23726123977622
+				temp = 88.512280754918649
+				tempExt = 88.524322720455274
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59337,10 +59611,10 @@ GAME
 				sym = 31
 				sym = 32
 				srfN = srfAttach, 27
-				mass = 0.0314299986
+				mass = 0.0135000004
 				shielded = False
-				temp = 307.12494174858
-				tempExt = 306.23725775785147
+				temp = 88.512268746392252
+				tempExt = 88.524212863199708
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59397,10 +59671,10 @@ GAME
 				sym = 30
 				sym = 32
 				srfN = srfAttach, 27
-				mass = 0.0314299986
+				mass = 0.0135000004
 				shielded = False
-				temp = 307.12494150977744
-				tempExt = 306.23725756741965
+				temp = 88.512405206733931
+				tempExt = 88.52534150840853
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59457,10 +59731,10 @@ GAME
 				sym = 30
 				sym = 31
 				srfN = srfAttach, 27
-				mass = 0.0314299986
+				mass = 0.0135000004
 				shielded = False
-				temp = 307.12493841622234
-				tempExt = 306.2372551004915
+				temp = 88.512314010769501
+				tempExt = 88.524616587401624
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -59591,13 +59865,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 102217.91760857571
+				SMA = 102217.91760730543
 				ECC = 0.99999999999999989
-				INC = 0.90745107290917859
-				LPE = 90
-				LAN = 305.37692024922967
-				MNA = 3.1415926207170166
-				EPH = 15146.63873351485
+				INC = 0.90745107290636695
+				LPE = 90.000000000000014
+				LAN = 305.43784220777701
+				MNA = -3.1415926207170166
+				EPH = 15170.158733515364
 				REF = 2
 			}
 			PART
@@ -63036,13 +63310,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = NaN
-				ECC = 1
-				INC = 3.8074654097966509
-				LPE = 90
-				LAN = 26.024122933340152
-				MNA = 0
-				EPH = 15146.63873351485
+				SMA = 160229.80992358952
+				ECC = 0.99999999999999989
+				INC = 3.8074654097849638
+				LPE = 90.000000000000014
+				LAN = 26.153357925409694
+				MNA = 3.1415926207170166
+				EPH = 15170.158733515364
 				REF = 6
 			}
 			PART
@@ -69267,13 +69541,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = NaN
-				ECC = 1
-				INC = 6.4518730152209578
+				SMA = 351550.26344667369
+				ECC = 0.99999999999999989
+				INC = 6.4518730152036925
 				LPE = 270
-				LAN = 318.83271425169369
-				MNA = 0
-				EPH = 15146.63873351485
+				LAN = 318.93789686001566
+				MNA = 3.1415926207170166
+				EPH = 15170.158733515364
 				REF = 5
 			}
 			PART
@@ -70849,13 +71123,13 @@ GAME
 			cMod = 0
 			ORBIT
 			{
-				SMA = 69353.954960924821
-				ECC = 0.99999999999999978
-				INC = 33.622443546492427
+				SMA = NaN
+				ECC = 1
+				INC = 33.622443546549526
 				LPE = 270
-				LAN = 320.02788473239991
-				MNA = 3.1415926303452304
-				EPH = 15146.63873351485
+				LAN = 320.27119507547457
+				MNA = 0
+				EPH = 15170.158733515364
 				REF = 15
 			}
 			PART
@@ -75697,6 +75971,6 @@ GAME
 	}
 	MESSAGESYSTEM
 	{
-		flash = False
+		flash = True
 	}
 }
