@@ -2,9 +2,9 @@ ship = Untitled Space Craft
 version = 1.7.3
 description = 
 type = SPH
-size = 1.86144936,11.4029503,1.91267967
+size = 3.06528425,1.52792168,2.21001339
 steamPublishedFileId = 0
-persistentId = 199919743
+persistentId = 1561513385
 rot = 0,0,0,0
 missionFlag = Squad/Flags/ugly_flag_2_black
 vesselType = Debris
@@ -14,9 +14,9 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = roverBody.v2_4294573628
+	part = cargoContainer_4294203352
 	partName = Part
-	persistentId = 2416302370
+	persistentId = 2535037347
 	pos = 0,10,0
 	attPos = 0,0,0
 	attPos0 = 0,10,0
@@ -35,21 +35,69 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
+	modCost = 90000
+	modMass = 0.359999955
+	modSize = 0,0,0
+	link = mk1pod.v2_4294194236
+	link = batteryBank_4294184436
+	attN = top,mk1pod.v2_4294194236_0|0.300000012|0_0|1|0_0|0.300000012|0_0|1|0
+	attN = bottom,batteryBank_4294184436_0|-0.300000012|0_0|-1|0_0|-0.300000012|0_0|-1|0
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleInventoryPart
+		isEnabled = True
+		stagingEnabled = True
+		inventory = DeployedRTG,DeployedRTG,DeployedRTG,DeployedRTG,DeployedRTG,DeployedRTG,DeployedRTG,DeployedRTG,DeployedRTG
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = mk1pod.v2_4294194236
+	partName = Part
+	persistentId = 2843098873
+	pos = 0,10,0.705038786
+	attPos = 0,0,0
+	attPos0 = 0,0.705038011,-5.96046448E-08
+	rot = 0.707106829,0,0,0.707106829
+	attRot = 0,0,0,1
+	attRot0 = 0,0,0,1
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 0
+	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = roverWheel2_4294560478
-	link = roverWheel2_4294560222
-	link = roverWheel2_4294558658
-	link = roverWheel2_4294557596
-	link = cargoContainer_4294536430
-	link = RobotArmScanner.S2_4294453144
-	attN = right,Null_0_0.510226011|0|0_1|0|0_0.510226011|0|0_1|0|0
-	attN = left,Null_0_-0.510226011|0|0_-1|0|0_-0.510226011|0|0_-1|0|0
-	attN = back,Null_0_0|0|0.224069998_0|0|1_0|0|0.224069998_0|0|1
-	attN = front,cargoContainer_4294536430_0|0|-0.224069998_0|0|-1_0|0|-0.224069998_0|0|-1
-	attN = bottom,Null_0_0|-0.746285021|0_0|-1|0_0|-0.746285021|0_0|-1|0
-	attN = top,RobotArmScanner.S2_4294453144_0|0.746285021|0_0|1|0_0|0.746285021|0_0|1|0
+	link = roverWheel2_4294171444
+	link = roverWheel2_4294004128
+	attN = bottom,cargoContainer_4294203352_0|-0.40503791|0_0|-1|0_0|-0.40503791|0_0|-1|0
+	attN = top,Null_0_0|0.642375588|0_0|1|0_0|0.642375588|0_0|1|0
 	EVENTS
 	{
 	}
@@ -79,6 +127,7 @@ PART
 			HibernateToggle
 			{
 				actionGroup = None
+				active = False
 			}
 		}
 		UPGRADESAPPLIED
@@ -87,34 +136,114 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleSAS
+		name = ModuleReactionWheel
 		isEnabled = True
-		standaloneToggle = True
+		actuatorModeCycle = 1
+		authorityLimiter = 100
+		stateString = Active
 		stagingEnabled = True
+		WheelState = Active
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleKerbNetAccess
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			OpenKerbNetAction
+			CycleAction
 			{
 				actionGroup = None
 			}
+			Activate
+			{
+				actionGroup = None
+			}
+			Deactivate
+			{
+				actionGroup = None
+			}
+			Toggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleColorChanger
+		isEnabled = True
+		animState = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = Light
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceExperiment
+		isEnabled = True
+		Deployed = False
+		Inoperable = False
+		cooldownToGo = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			DeployAction
+			{
+				actionGroup = None
+			}
+			ResetAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleScienceContainer
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			CollectAllAction
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleConductionMultiplier
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -136,6 +265,21 @@ PART
 				actionGroup = None
 				active = False
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleLiftingSurface
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -748,8 +892,19 @@ PART
 	RESOURCE
 	{
 		name = ElectricCharge
-		amount = 120
-		maxAmount = 120
+		amount = 50
+		maxAmount = 50
+		flowState = True
+		isTweakable = True
+		hideFlow = False
+		isVisible = True
+		flowMode = Both
+	}
+	RESOURCE
+	{
+		name = MonoPropellant
+		amount = 10
+		maxAmount = 10
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -759,857 +914,12 @@ PART
 }
 PART
 {
-	part = roverWheel2_4294560478
+	part = batteryBank_4294184436
 	partName = Part
-	persistentId = 2670158
-	pos = -0.726368606,9.4751482,0.524955273
+	persistentId = 1004463140
+	pos = 0,10,-0.410855949
 	attPos = 0,0,0
-	attPos0 = -0.726368606,0.524955273,0.524851799
-	rot = -1.1920929E-07,-5.96046732E-08,3.57627954E-07,-1.00000012
-	attRot = -0.707106769,0,0,0.707106769
-	attRot0 = 0.707106769,2.10734271E-07,2.95028002E-07,-0.707106888
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = ForceHeaviest
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = roverWheel2_4294560222
-	srfN = srfAttach,roverBody.v2_4294573628,collider.collider
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = MOTORIZED
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		autoSpringDamper = True
-		suspensionPos = (-1, -1, -1)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSteering
-		isEnabled = True
-		steeringEnabled = True
-		steeringInvert = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			SteeringToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelMotor
-		isEnabled = True
-		autoTorque = True
-		motorEnabled = True
-		motorInverted = False
-		driveLimiter = 100
-		tractionControlScale = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MotorToggle
-			{
-				actionGroup = None
-			}
-			ActAutoTorqueToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelBrakes
-		isEnabled = True
-		brakeTweakable = 100
-		brakeInput = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			BrakeAction
-			{
-				actionGroup = Brakes
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDamage
-		isEnabled = True
-		isDamaged = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleLookAtConstraint
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = roverWheel2_4294560222
-	partName = Part
-	persistentId = 2125436325
-	pos = 0.726368606,9.4751482,0.524955273
-	attPos = 0,0,0
-	attPos0 = 0.726368606,0.524955273,0.524851799
-	rot = -3.57627869E-07,1.00000012,1.1920929E-07,1.58932494E-08
-	attRot = -0.707106769,0,0,0.707106769
-	attRot0 = -2.64119308E-07,0.707106888,-0.707106769,-2.41642852E-07
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = ForceHeaviest
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = roverWheel2_4294560478
-	srfN = srfAttach,roverBody.v2_4294573628,collider.collider
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = MOTORIZED
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		autoSpringDamper = True
-		suspensionPos = (-1, -1, -1)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSteering
-		isEnabled = True
-		steeringEnabled = True
-		steeringInvert = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			SteeringToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelMotor
-		isEnabled = True
-		autoTorque = True
-		motorEnabled = True
-		motorInverted = False
-		driveLimiter = 100
-		tractionControlScale = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MotorToggle
-			{
-				actionGroup = None
-			}
-			ActAutoTorqueToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelBrakes
-		isEnabled = True
-		brakeTweakable = 100
-		brakeInput = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			BrakeAction
-			{
-				actionGroup = Brakes
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDamage
-		isEnabled = True
-		isDamaged = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleLookAtConstraint
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = roverWheel2_4294558658
-	partName = Part
-	persistentId = 953815417
-	pos = -0.726320148,9.4751482,-0.509296179
-	attPos = 0,0,0
-	attPos0 = -0.726320148,-0.50929606,0.524851918
-	rot = -1.1920929E-07,-5.96046732E-08,3.57627954E-07,-1.00000012
-	attRot = -0.707106769,0,0,0.707106769
-	attRot0 = 0.707106769,2.10734271E-07,2.95028002E-07,-0.707106888
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = ForceHeaviest
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = roverWheel2_4294557596
-	srfN = srfAttach,roverBody.v2_4294573628,collider.collider
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = MOTORIZED
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		autoSpringDamper = True
-		suspensionPos = (-1, -1, -1)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSteering
-		isEnabled = True
-		steeringEnabled = True
-		steeringInvert = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			SteeringToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelMotor
-		isEnabled = True
-		autoTorque = True
-		motorEnabled = True
-		motorInverted = False
-		driveLimiter = 100
-		tractionControlScale = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MotorToggle
-			{
-				actionGroup = None
-			}
-			ActAutoTorqueToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelBrakes
-		isEnabled = True
-		brakeTweakable = 100
-		brakeInput = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			BrakeAction
-			{
-				actionGroup = Brakes
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDamage
-		isEnabled = True
-		isDamaged = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleLookAtConstraint
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = roverWheel2_4294557596
-	partName = Part
-	persistentId = 3897338732
-	pos = 0.726320148,9.4751482,-0.509296238
-	attPos = 0,0,0
-	attPos0 = 0.726320148,-0.509296119,0.524851859
-	rot = -3.57627869E-07,1.00000012,1.1920929E-07,1.58932494E-08
-	attRot = -0.707106769,0,0,0.707106769
-	attRot0 = -2.64119308E-07,0.707106888,-0.707106769,-2.41642852E-07
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = ForceHeaviest
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = roverWheel2_4294558658
-	srfN = srfAttach,roverBody.v2_4294573628,collider.collider
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = MOTORIZED
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		autoSpringDamper = True
-		suspensionPos = (-1, -1, -1)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSteering
-		isEnabled = True
-		steeringEnabled = True
-		steeringInvert = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			SteeringToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelMotor
-		isEnabled = True
-		autoTorque = True
-		motorEnabled = True
-		motorInverted = False
-		driveLimiter = 100
-		tractionControlScale = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MotorToggle
-			{
-				actionGroup = None
-			}
-			ActAutoTorqueToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelBrakes
-		isEnabled = True
-		brakeTweakable = 100
-		brakeInput = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			BrakeAction
-			{
-				actionGroup = Brakes
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelDamage
-		isEnabled = True
-		isDamaged = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = FXModuleLookAtConstraint
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = cargoContainer_4294536430
-	partName = Part
-	persistentId = 81562047
-	pos = 0,10.5240698,5.96046448E-08
-	attPos = 0,0,0
-	attPos0 = 0,0,-0.524069905
-	rot = 1.00000012,0,0,0
-	attRot = 0.707106769,0,0,0.707106769
-	attRot0 = 0.707106829,0,0,0.707106829
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 25400
-	modMass = 0.299999982
-	modSize = 0,0,0
-	link = batteryBank_4294421490
-	link = solarPanels1_4294416090
-	link = solarPanels1_4294412926
-	attN = top,roverBody.v2_4294573628_0|0.300000012|0_0|1|0_0|0.300000012|0_0|1|0
-	attN = bottom,batteryBank_4294421490_0|-0.300000012|0_0|-1|0_0|-0.300000012|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleInventoryPart
-		isEnabled = True
-		stagingEnabled = True
-		inventory = DeployedWeatherStn,DeployedCentralStation,DeployedSolarPanel,DeployedRTG,DeployedIONExp,DeployedSeismicSensor,DeployedGoExOb,DeployedSatDish
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RobotArmScanner.S2_4294453144
-	partName = Part
-	persistentId = 3421295579
-	pos = 0,10,0.746285558
-	attPos = 0,0,0
-	attPos0 = 0,0.746285141,-5.96046448E-08
+	attPos0 = 0,-0.410855412,5.96046448E-08
 	rot = 0.707106829,0,0,0.707106829
 	attRot = 0,0,0,1
 	attRot0 = 0,0,0,1
@@ -1628,127 +938,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	attN = bottom,roverBody.v2_4294573628_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRobotArmScanner
-		isEnabled = True
-		currentRotation = (1.28700865E-32, -1.13446405E-16, 1.13446405E-16, 1)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 0
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		SCANNEREFFECTS
-		{
-			EFFECT
-			{
-				className = RobotArmFXSpectrometer
-				effectStartTime = 1.5
-				effectStopTime = 3
-				lightTransformName = LightTransform
-			}
-			EFFECT
-			{
-				className = RobotArmFXLaser
-				effectStartTime = 5
-				effectStopTime = 6.5
-				laserEffectTransformName = LaserTransform
-				configLaserEffectColor = #FF0000
-				laserEffectWidth = 0.00999999978
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ResetAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = batteryBank_4294421490
-	partName = Part
-	persistentId = 3098357242
-	pos = 0,10.9349251,1.78813934E-07
-	attPos = 0,0,0
-	attPos0 = 0,-0.410855263,0
-	rot = 1.00000012,0,0,0
-	attRot = 0.707106769,0,0,0.707106769
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = seatExternalCmd_4294119366
-	link = seatExternalCmd_4294118810
-	link = telescopicLadderBay_4294082270
-	attN = top,cargoContainer_4294536430_0|0.110855304|0_0|1|0_0|0.110855304|0_0|1|0
+	link = solarPanels1_4294178096
+	link = GearFixed_4293879806
+	link = GearFixed_4293878810
+	attN = top,cargoContainer_4294203352_0|0.110855304|0_0|1|0_0|0.110855304|0_0|1|0
 	attN = bottom,Null_0_0|-0.110855304|0_0|-1|0_0|-0.110855304|0_0|-1|0
 	EVENTS
 	{
@@ -1773,15 +966,15 @@ PART
 }
 PART
 {
-	part = solarPanels1_4294416090
+	part = solarPanels1_4294178096
 	partName = Part
-	persistentId = 1908260204
-	pos = -0.623214364,10.6919127,0
+	persistentId = 1569327030
+	pos = 0.0462943614,10.0267277,-0.504200935
 	attPos = 0,0,0
-	attPos0 = -0.623214364,-0.167842776,7.45057918E-08
-	rot = 1.00000012,0,8.42937098E-08,0
+	attPos0 = 0.0462943614,-0.0933449492,-0.0267276652
+	rot = 0.707106829,0,0.707106829,0
 	attRot = 0,0,0,1
-	attRot0 = 0,8.42937027E-08,0,1
+	attRot0 = 0.5,0.5,0.5,0.5
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -1797,8 +990,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = solarPanels1_4294412926
-	srfN = srfAttach,cargoContainer_4294536430,collider
+	srfN = srfAttach,batteryBank_4294184436,collider
 	EVENTS
 	{
 	}
@@ -1826,7 +1018,7 @@ PART
 		{
 			ExtendPanelsAction
 			{
-				actionGroup = Custom01
+				actionGroup = None
 			}
 			ExtendAction
 			{
@@ -1844,18 +1036,412 @@ PART
 }
 PART
 {
-	part = solarPanels1_4294412926
+	part = roverWheel2_4294171444
 	partName = Part
-	persistentId = 1170759004
-	pos = 0.623214364,10.6919127,-5.96046448E-08
+	persistentId = 856265385
+	pos = -0.631400764,9.4751482,1.03623867
 	attPos = 0,0,0
-	attPos0 = 0.623214364,-0.167842776,1.34110422E-07
-	rot = 4.05822966E-08,0,1.00000012,0
+	attPos0 = -0.631400764,0.331199437,0.524851561
+	rot = 0,0.139795035,4.47034836E-08,0.990180612
+	attRot = -0.707106769,0,0,0.707106769
+	attRot0 = -0.700163364,0.0988500342,-0.0988499746,0.700163364
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = roverWheel2_4294004128
+	srfN = srfAttach,mk1pod.v2_4294194236,COL
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleLookAtConstraint
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = roverWheel2_4294004128
+	partName = Part
+	persistentId = 65834313
+	pos = 0.631400764,9.4751482,1.03623867
+	attPos = 0,0,0
+	attPos0 = 0.631400764,0.331199437,0.524851561
+	rot = 3.7252903E-08,0.990180612,8.94069672E-08,0.139794946
+	attRot = -0.707106769,0,0,0.707106769
+	attRot0 = -0.0988499224,0.700163424,-0.700163305,0.098849982
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = roverWheel2_4294171444
+	srfN = srfAttach,mk1pod.v2_4294194236,COL
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = FXModuleLookAtConstraint
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = GearFixed_4293879806
+	partName = Part
+	persistentId = 978778906
+	pos = -0.605032682,10,-0.454398483
+	attPos = 0,0,0
+	attPos0 = -0.605032682,-0.0435425155,0
+	rot = 0.0055553019,2.96363041E-08,-2.99674241E-08,0.999984741
 	attRot = 0,0,0,1
-	attRot0 = 0,1,0,4.05822931E-08
+	attRot0 = -0.703167737,-2.34138015E-10,-4.21461976E-08,0.711024106
 	mir = 1,1,1
 	symMethod = Mirror
-	autostrutMode = Off
+	autostrutMode = ForceHeaviest
 	rigidAttachment = False
 	istg = -1
 	resPri = 0
@@ -1868,8 +1454,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = solarPanels1_4294416090
-	srfN = srfAttach,cargoContainer_4294536430,collider
+	sym = GearFixed_4293878810
+	srfN = srfAttach,batteryBank_4294184436,collider
 	EVENTS
 	{
 	}
@@ -1881,32 +1467,79 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleDeployableSolarPanel
+		name = ModuleWheelBase
 		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (-0.707106829, 0, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
+		wheelType = FREE
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			ExtendPanelsAction
-			{
-				actionGroup = Custom01
-			}
-			ExtendAction
+			ActAutoFrictionToggle
 			{
 				actionGroup = None
 			}
-			RetractAction
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
 			{
-				actionGroup = None
+				actionGroup = Brakes
 			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
@@ -1915,18 +1548,18 @@ PART
 }
 PART
 {
-	part = seatExternalCmd_4294119366
+	part = GearFixed_4293878810
 	partName = Part
-	persistentId = 2900164810
-	pos = 0.473092735,11.2282696,0
+	persistentId = 316177775
+	pos = 0.605032682,10,-0.454398543
 	attPos = 0,0,0
-	attPos0 = 0.473092735,-0.293344468,1.78813892E-07
-	rot = -0.707106769,0,0,-0.707107008
-	attRot = 0,0,-0.99999994,0
-	attRot0 = 0.707106948,0,0,-0.707106709
-	mir = 1,1,1
+	attPos0 = 0.605032682,-0.0435425751,0
+	rot = -3.0210245E-08,0.999984741,0.0055553019,-1.40744136E-08
+	attRot = 0,0,0,1
+	attRot0 = -1.14097549E-08,0.711024106,-0.703167737,-3.13139807E-08
+	mir = 1,1,-1
 	symMethod = Mirror
-	autostrutMode = Off
+	autostrutMode = ForceHeaviest
 	rigidAttachment = False
 	istg = -1
 	resPri = 0
@@ -1939,8 +1572,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = seatExternalCmd_4294118810
-	srfN = srfAttach,batteryBank_4294421490,collider
+	sym = GearFixed_4293879806
+	srfN = srfAttach,batteryBank_4294184436,collider
 	EVENTS
 	{
 	}
@@ -1952,20 +1585,19 @@ PART
 	}
 	MODULE
 	{
-		name = KerbalSeat
+		name = ModuleWheelBase
 		isEnabled = True
-		ejectionForcePercentage = 0
+		wheelType = FREE
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			MakeReferenceToggle
-			{
-				actionGroup = None
-			}
-			LeaveSeat
+			ActAutoFrictionToggle
 			{
 				actionGroup = None
 			}
@@ -1976,79 +1608,39 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleTripLogger
+		name = ModuleWheelSuspension
 		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-		}
-		Log
-		{
-			flight = 0
 		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
-}
-PART
-{
-	part = seatExternalCmd_4294118810
-	partName = Part
-	persistentId = 1207672817
-	pos = -0.473092735,11.2282696,1.1920929E-07
-	attPos = 0,0,0
-	attPos0 = -0.473092735,-0.293344468,5.96046306E-08
-	rot = 0.707106769,0,0,0.707107008
-	attRot = 0,0,-0.99999994,0
-	attRot0 = -0.707106948,0,0,0.707106709
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = seatExternalCmd_4294119366
-	srfN = srfAttach,batteryBank_4294421490,collider
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
 	MODULE
 	{
-		name = KerbalSeat
+		name = ModuleWheelBrakes
 		isEnabled = True
-		ejectionForcePercentage = 0
+		brakeTweakable = 100
+		brakeInput = 0
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			MakeReferenceToggle
+			BrakeAction
 			{
-				actionGroup = None
-			}
-			LeaveSeat
-			{
-				actionGroup = None
+				actionGroup = Brakes
 			}
 		}
 		UPGRADESAPPLIED
@@ -2057,83 +1649,15 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleTripLogger
+		name = ModuleWheelDamage
 		isEnabled = True
+		isDamaged = False
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-		}
-		Log
-		{
-			flight = 0
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = telescopicLadderBay_4294082270
-	partName = Part
-	persistentId = 2828386848
-	pos = 0,10.8870897,-0.604829729
-	attPos = 0,0,0
-	attPos0 = 0,0.0478354394,0.604829669
-	rot = 1.1920929E-07,0.707106888,-1.1920929E-07,-0.707106888
-	attRot = 0.999999881,0,0,0
-	attRot0 = 0.707106829,-1.19209275E-07,-0.707106829,1.19209275E-07
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,batteryBank_4294421490,collider
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = RetractableLadder
-		isEnabled = True
-		StateName = Retracted
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-			}
 		}
 		UPGRADESAPPLIED
 		{
