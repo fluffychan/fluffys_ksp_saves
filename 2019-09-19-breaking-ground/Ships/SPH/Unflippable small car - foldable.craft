@@ -1,13 +1,13 @@
-ship = Foldable Flippable Rover - sci
+ship = Unflippable small car - foldable
 version = 1.7.3
 description = 
 type = SPH
-size = 2.44185853,2.17953873,6.27442551
+size = 2.44185662,2.17953682,6.27441978
 steamPublishedFileId = 0
 persistentId = 1247430980
 rot = 0,0,0,0
 missionFlag = Squad/Flags/ugly_flag_2_black
-vesselType = Rover
+vesselType = Debris
 OverrideDefault = False,False,False,False
 OverrideActionControl = 0,0,0,0
 OverrideAxisControl = 0,0,0,0
@@ -40,8 +40,6 @@ PART
 	modSize = 0,0,0
 	link = trussPiece3x_4293184222
 	link = trussPiece3x_4292702740
-	link = longAntenna_4292244588
-	link = longAntenna_4292242822
 	link = controller1000_4292678588
 	attN = bottom,trussPiece3x_4292702740_0|-0.1875|0_0|-1|0_0|-0.1875|0_0|-1|0
 	attN = top,trussPiece3x_4293184222_0|0.1875|0_0|1|0_0|0.1875|0_0|1|0
@@ -754,19 +752,13 @@ PART
 		isVisible = True
 		flowMode = Both
 	}
-	VESSELNAMING
-	{
-		name = Foldable Flippable Rover - sci
-		type = Rover
-		priority = 10
-	}
 }
 PART
 {
 	part = trussPiece3x_4293184222
 	partName = Part
 	persistentId = 2700578488
-	pos = 0,10,1.66274309
+	pos = 0,10,1.66274023
 	attPos = 0,0,0
 	attPos0 = 0,1.66273808,-2.38418579E-07
 	rot = 0.707106829,0,0,0.707106829
@@ -787,9 +779,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
+	link = LgRadialSolarPanel_4293156584
 	link = hinge.01_4292874432
 	link = hinge.01_4292873040
-	link = RobotArmScanner.S3_4292218268
 	attN = bottom,probeCoreHex.v2_4293210486_0|-1.47523797|0_0|-1|0_0|-1.47523797|0_0|-1|0
 	attN = top,Null_0_0|1.47523797|0_0|1|0_0|1.47523797|0_0|1|0
 	EVENTS
@@ -804,13 +796,86 @@ PART
 }
 PART
 {
+	part = LgRadialSolarPanel_4293156584
+	partName = Part
+	persistentId = 29995923
+	pos = 2.85156094E-08,10.3261805,1.04833066
+	attPos = 0,0,0
+	attPos0 = 2.85156094E-08,-0.614408135,-0.32618019
+	rot = 0,0.707106948,0.707106709,0
+	attRot = 0,0,0,1
+	attRot0 = 0,1,-1.78813934E-07,0
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	srfN = srfAttach,trussPiece3x_4293184222,truss3x
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleDeployableSolarPanel
+		isEnabled = True
+		efficiencyMult = 1
+		launchUT = -1
+		currentRotation = (0, 0, 0, 1)
+		storedAnimationTime = 0
+		storedAnimationSpeed = 0
+		deployState = EXTENDED
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ExtendPanelsAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ExtendAction
+			{
+				actionGroup = None
+				active = False
+			}
+			RetractAction
+			{
+				actionGroup = None
+				active = False
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
 	part = hinge.01_4292874432
 	partName = Part
 	persistentId = 3851348280
-	pos = -0.63791883,10,2.80605292
+	pos = -0.63791883,10,2.80605006
 	attPos = 0,0,0
 	attPos0 = -0.63791883,1.14330912,0
-	rot = 0.707106709,-0.707106948,-8.94069672E-08,-5.96046448E-08
+	rot = 0.707106709,-0.707106948,-5.96046448E-08,-2.98023224E-08
 	attRot = 0,0,0,1
 	attRot0 = 0.5,-0.500000119,0.5,0.5
 	mir = 1,1,1
@@ -832,7 +897,7 @@ PART
 	sym = hinge.01_4292873040
 	srfN = srfAttach,trussPiece3x_4293184222,truss3x
 	attN = bottom,Null_0_0|-0.3125|0_0|-1|0_0|-0.3125|0_0|-1|0
-	attN = top,trussPiece1x_4293179050_0|0.3125|0_0|1|0_5.58794895E-08|4.17232371E-07|0.312499523_5.96048224E-08|0|1.00000107
+	attN = top,trussPiece1x_4293179050_0|0.3125|0_0|1|0_2.79398265E-08|4.76837158E-07|0.312499523_8.94070808E-08|0|1.00000107
 	EVENTS
 	{
 	}
@@ -974,7 +1039,7 @@ PART
 	part = hinge.01_4292873040
 	partName = Part
 	persistentId = 4221402277
-	pos = 0.63791883,10,2.80605292
+	pos = 0.63791883,10,2.80605006
 	attPos = 0,0,0
 	attPos0 = 0.63791883,1.14330912,0
 	rot = 0.707106829,0.707106829,5.96046448E-08,0
@@ -1124,10 +1189,10 @@ PART
 	part = trussPiece1x_4293179050
 	partName = Part
 	persistentId = 3603313531
-	pos = -0.637921691,10,1.93428063
+	pos = -0.63792038,10,1.93427682
 	attPos = 0,0,0
 	attPos0 = 1.78813835E-07,0.871772885,-1.08816982E-06
-	rot = -0.5,0.5,-0.500000358,0.49999994
+	rot = -0.49999997,0.50000006,-0.500000298,0.49999997
 	attRot = -0.49999994,0.49999994,-0.49999994,-0.49999994
 	attRot0 = -5.96046448E-08,-5.96046448E-08,5.96046448E-08,-1
 	mir = 1,1,1
@@ -1167,10 +1232,10 @@ PART
 	part = wheelMed_4293166824
 	partName = Part
 	persistentId = 1051618048
-	pos = -0.637922883,9.69223404,1.44427705
+	pos = -0.637920976,9.69223404,1.44427502
 	attPos = 0,0,0
 	attPos0 = 0.30776605,0.490000457,-7.15255908E-07
-	rot = 3.87430191E-07,0.707106709,1.1920929E-07,-0.707107186
+	rot = 2.68220901E-07,0.70710659,2.08616257E-07,-0.707106948
 	attRot = 0,0,0,1
 	attRot0 = -0.707106888,0.707106769,-4.19917789E-08,-3.57627869E-07
 	mir = 1,1,1
@@ -1349,10 +1414,10 @@ PART
 	part = ksp.r.largeBatteryPack_4293145386
 	partName = Part
 	persistentId = 2905053896
-	pos = -0.637922108,10.3249474,1.65356052
+	pos = -0.637920737,10.3249474,1.65355742
 	attPos = 0,0,0
 	attPos0 = -0.324947268,0.280718833,-5.96046561E-07
-	rot = 0.499999821,-0.50000006,0.50000006,0.500000298
+	rot = 0.499999762,-0.50000006,0.50000006,0.500000358
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -1398,10 +1463,10 @@ PART
 	part = ksp.r.largeBatteryPack_4293141944
 	partName = Part
 	persistentId = 1845029615
-	pos = -0.637922347,10.3248358,2.18397593
+	pos = -0.637921274,10.3248358,2.18397164
 	attPos = 0,0,0
 	attPos0 = -0.324835807,-0.249694601,-6.55651263E-07
-	rot = 0.499999821,-0.50000006,0.50000006,0.500000298
+	rot = 0.499999762,-0.50000006,0.50000006,0.500000358
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -1447,10 +1512,10 @@ PART
 	part = wheelMed_4293131576
 	partName = Part
 	persistentId = 397148885
-	pos = -0.637922347,10.3106518,1.44427705
+	pos = -0.637920856,10.3106508,1.44427502
 	attPos = 0,0,0
 	attPos0 = -0.310650676,0.490000516,-5.96046561E-07
-	rot = 0.707107067,-5.96046448E-08,0.707106709,2.38418579E-07
+	rot = 0.707107067,-1.49011612E-07,0.707106709,2.38418579E-07
 	attRot = -0.99999994,0,0,0
 	attRot0 = 3.5762784E-07,2.98023188E-08,0.707106709,-0.707106888
 	mir = 1,1,1
@@ -1629,10 +1694,10 @@ PART
 	part = trussPiece1x_4292872196
 	partName = Part
 	persistentId = 2604161664
-	pos = 0.637921214,10,1.93428075
+	pos = 0.63792038,10,1.93427694
 	attPos = 0,0,0
 	attPos0 = 1.42108547E-13,0.871772587,-1.08816914E-06
-	rot = 0.50000006,0.50000006,-0.500000179,-0.50000006
+	rot = 0.50000006,0.50000006,-0.50000006,-0.50000006
 	attRot = -0.49999994,0.49999994,-0.49999994,-0.49999994
 	attRot0 = 7.4505806E-08,-4.47034836E-08,-1.04308128E-07,1
 	mir = 1,1,1
@@ -1672,10 +1737,10 @@ PART
 	part = wheelMed_4292872164
 	partName = Part
 	persistentId = 1938191526
-	pos = 0.637922227,9.69223404,1.44427669
+	pos = 0.637921035,9.69223404,1.4442749
 	attPos = 0,0,0
 	attPos0 = 0.30776605,0.490000457,-7.15255908E-07
-	rot = -1.1920929E-07,0.707107067,-5.66244125E-07,-0.707106769
+	rot = -1.49011612E-07,0.707107186,-3.87430191E-07,-0.707106709
 	attRot = 0,0,0,1
 	attRot0 = -0.707106888,0.707106769,-4.19917789E-08,-3.57627869E-07
 	mir = 1,1,1
@@ -1854,10 +1919,10 @@ PART
 	part = ksp.r.largeBatteryPack_4292872026
 	partName = Part
 	persistentId = 115446329
-	pos = 0.637922049,10.3249474,1.653561
+	pos = 0.637921095,10.3249474,1.65355754
 	attPos = 0,0,0
 	attPos0 = -0.324947268,0.280718833,-5.96046561E-07
-	rot = 0.499999702,0.500000358,-0.500000238,0.500000119
+	rot = 0.499999702,0.500000238,-0.500000238,0.500000119
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -1903,10 +1968,10 @@ PART
 	part = ksp.r.largeBatteryPack_4292872000
 	partName = Part
 	persistentId = 2758270886
-	pos = 0.637922764,10.3248358,2.18397737
+	pos = 0.637921631,10.3248358,2.18397236
 	attPos = 0,0,0
 	attPos0 = -0.324835807,-0.249694601,-6.55651263E-07
-	rot = 0.499999702,0.500000358,-0.500000238,0.500000119
+	rot = 0.499999702,0.500000238,-0.500000238,0.500000119
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -1952,10 +2017,10 @@ PART
 	part = wheelMed_4292871974
 	partName = Part
 	persistentId = 1726549635
-	pos = 0.637922585,10.3106508,1.44427693
+	pos = 0.637921154,10.3106508,1.44427514
 	attPos = 0,0,0
 	attPos0 = -0.310650676,0.490000516,-5.96046561E-07
-	rot = 0.707106829,1.49011612E-07,0.707106948,-3.87430191E-07
+	rot = 0.707106709,8.94069672E-08,0.707107067,-3.57627869E-07
 	attRot = -0.99999994,0,0,0
 	attRot0 = 3.5762784E-07,2.98023188E-08,0.707106709,-0.707106888
 	mir = 1,1,1
@@ -2134,7 +2199,7 @@ PART
 	part = trussPiece3x_4292702740
 	partName = Part
 	persistentId = 1715606430
-	pos = 0,10,-1.66274118
+	pos = 0,10,-1.66273832
 	attPos = 0,0,0
 	attPos0 = 0,-1.66273808,2.38418579E-07
 	rot = 0.707106829,0,0,0.707106829
@@ -2157,12 +2222,6 @@ PART
 	modSize = 0,0,0
 	link = hinge.01_4292865466
 	link = hinge.01_4292701276
-	link = LgRadialSolarPanel_4293156584
-	link = LgRadialSolarPanel_4292240410
-	link = sensorThermometer_4292197268
-	link = sensorAccelerometer_4292190260
-	link = sensorGravimeter_4292186660
-	link = sensorBarometer_4292179794
 	attN = bottom,Null_0_0|-1.47523797|0_0|-1|0_0|-1.47523797|0_0|-1|0
 	attN = top,probeCoreHex.v2_4293210486_0|1.47523797|0_0|1|0_0|1.47523797|0_0|1|0
 	EVENTS
@@ -2180,10 +2239,10 @@ PART
 	part = hinge.01_4292865466
 	partName = Part
 	persistentId = 1904069142
-	pos = -0.637071967,10,-2.81254983
+	pos = -0.637071967,10,-2.81254697
 	attPos = 0,0,0
 	attPos0 = -0.637071967,-1.14980793,0
-	rot = 0.707106709,-0.707106948,-8.94069672E-08,-5.96046448E-08
+	rot = 0.707106829,-0.707106948,-8.94069672E-08,0
 	attRot = 0,0,0,0.99999994
 	attRot0 = 0.5,-0.500000119,0.5,0.5
 	mir = 1,1,1
@@ -2205,7 +2264,7 @@ PART
 	sym = hinge.01_4292701276
 	srfN = srfAttach,trussPiece3x_4292702740,truss3x
 	attN = bottom,Null_0_0|-0.3125|0_0|-1|0_0|-0.3125|0_0|-1|0
-	attN = top,trussPiece1x_4293175100_0|0.3125|0_0|1|0_-5.58790632E-08|4.76836988E-07|-0.312499523_-5.96046519E-08|0|-1.00000012
+	attN = top,trussPiece1x_4293175100_0|0.3125|0_0|1|0_-3.72528319E-08|1.78813863E-07|-0.312499493_-2.84217094E-14|-1.1920929E-07|-1.00000024
 	EVENTS
 	{
 	}
@@ -2347,10 +2406,10 @@ PART
 	part = trussPiece1x_4293175100
 	partName = Part
 	persistentId = 1011125394
-	pos = -0.637073457,9.99999905,-1.94077504
+	pos = -0.637072623,10,-1.94077122
 	attPos = 0,0,0
 	attPos0 = 1.78814034E-07,0.871772826,6.40365442E-07
-	rot = -0.500000298,0.49999997,0.50000006,-0.49999994
+	rot = -0.500000358,0.5,0.500000119,-0.5
 	attRot = -0.49999994,0.49999994,-0.49999994,-0.49999994
 	attRot0 = -5.96046448E-08,-5.96046448E-08,5.96046448E-08,-1
 	mir = 1,1,1
@@ -2390,10 +2449,10 @@ PART
 	part = wheelMed_4293164168
 	partName = Part
 	persistentId = 2095830685
-	pos = -0.637073338,9.69133759,-1.45077121
+	pos = -0.637072563,9.69133759,-1.45076907
 	attPos = 0,0,0
 	attPos0 = 0.308660656,0.490000516,1.78814147E-07
-	rot = 2.98023224E-08,-0.707107186,-5.66244125E-07,-0.70710659
+	rot = 8.94069672E-08,-0.707107186,-4.47034836E-07,-0.707106709
 	attRot = 0,0,0,1
 	attRot0 = -0.707106888,0.707106769,-4.19917789E-08,-3.57627869E-07
 	mir = 1,1,1
@@ -2572,10 +2631,10 @@ PART
 	part = ksp.r.largeBatteryPack_4293148338
 	partName = Part
 	persistentId = 2102651509
-	pos = -0.637073636,10.3264055,-1.62845945
+	pos = -0.63707304,10.3264055,-1.62845588
 	attPos = 0,0,0
 	attPos0 = -0.326406389,0.312314838,2.98023565E-07
-	rot = 0.500000298,0.500000358,-0.499999642,0.500000298
+	rot = 0.500000298,0.500000417,-0.499999553,0.500000298
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -2621,10 +2680,10 @@ PART
 	part = ksp.r.largeBatteryPack_4293143574
 	partName = Part
 	persistentId = 1609194344
-	pos = -0.637073994,10.3255539,-2.15046525
+	pos = -0.63707304,10.3255539,-2.15046048
 	attPos = 0,0,0
 	attPos0 = -0.325553983,-0.209688619,3.57628295E-07
-	rot = 0.500000298,0.500000358,-0.499999642,0.500000298
+	rot = 0.500000298,0.500000417,-0.499999553,0.500000298
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -2670,10 +2729,10 @@ PART
 	part = wheelMed_4293125348
 	partName = Part
 	persistentId = 604487048
-	pos = -0.637073815,10.2642918,-1.45077097
+	pos = -0.63707304,10.2642918,-1.45076883
 	attPos = 0,0,0
 	attPos0 = -0.264292598,0.490000576,2.98023565E-07
-	rot = 0.707106709,2.38418579E-07,-0.707107067,-2.68220901E-07
+	rot = 0.70710665,3.27825546E-07,-0.707107186,0
 	attRot = -0.99999994,0,0,0
 	attRot0 = 3.5762784E-07,2.98023188E-08,0.707106709,-0.707106888
 	mir = 1,1,1
@@ -2852,7 +2911,7 @@ PART
 	part = hinge.01_4292701276
 	partName = Part
 	persistentId = 2622309885
-	pos = 0.637071967,10,-2.81254983
+	pos = 0.637071967,10,-2.81254697
 	attPos = 0,0,0
 	attPos0 = 0.637071967,-1.14980793,0
 	rot = 0.707106829,0.707106829,5.96046448E-08,0
@@ -2877,7 +2936,7 @@ PART
 	sym = hinge.01_4292865466
 	srfN = srfAttach,trussPiece3x_4292702740,truss3x
 	attN = bottom,Null_0_0|-0.3125|0_0|-1|0_0|-0.3125|0_0|-1|0
-	attN = top,trussPiece1x_4292701204_0|0.3125|0_0|1|0_3.72528604E-08|4.47034665E-07|-0.312499523_1.19209304E-07|0|-1.00000012
+	attN = top,trussPiece1x_4292701204_0|0.3125|0_0|1|0_3.72528959E-08|2.08616115E-07|-0.312499493_2.38418579E-07|0|-1.00000012
 	EVENTS
 	{
 	}
@@ -3002,10 +3061,10 @@ PART
 	part = trussPiece1x_4292701204
 	partName = Part
 	persistentId = 1756066671
-	pos = 0.637073457,10,-1.94077432
+	pos = 0.637072623,10,-1.94077039
 	attPos = 0,0,0
 	attPos0 = 1.78814034E-07,0.871772826,6.40365442E-07
-	rot = 0.500000477,0.5,0.49999994,0.499999911
+	rot = 0.500000477,0.49999997,0.49999997,0.499999851
 	attRot = -0.49999994,0.49999994,-0.49999994,-0.49999994
 	attRot0 = -5.96046448E-08,-5.96046448E-08,5.96046448E-08,-1
 	mir = 1,1,1
@@ -3045,10 +3104,10 @@ PART
 	part = wheelMed_4292701172
 	partName = Part
 	persistentId = 1473901290
-	pos = 0.637073696,9.69133854,-1.45077002
+	pos = 0.637072504,9.69133854,-1.45076787
 	attPos = 0,0,0
 	attPos0 = 0.308660656,0.490000516,1.78814147E-07
-	rot = 4.17232513E-07,0.707106709,-2.68220901E-07,0.707107008
+	rot = 5.06639481E-07,0.707106709,-8.94069672E-08,0.707107186
 	attRot = 0,0,0,1
 	attRot0 = -0.707106888,0.707106769,-4.19917789E-08,-3.57627869E-07
 	mir = 1,1,1
@@ -3227,10 +3286,10 @@ PART
 	part = ksp.r.largeBatteryPack_4292701034
 	partName = Part
 	persistentId = 2273544758
-	pos = 0.637074113,10.3264055,-1.6284579
+	pos = 0.63707304,10.3264055,-1.62845469
 	attPos = 0,0,0
 	attPos0 = -0.326406389,0.312314838,2.98023565E-07
-	rot = 0.500000417,-0.500000298,0.499999195,0.500000298
+	rot = 0.500000238,-0.500000417,0.499999464,0.500000119
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -3276,10 +3335,10 @@ PART
 	part = ksp.r.largeBatteryPack_4292701008
 	partName = Part
 	persistentId = 3668165318
-	pos = 0.637074113,10.3255539,-2.15046382
+	pos = 0.6370731,10.3255539,-2.15046
 	attPos = 0,0,0
 	attPos0 = -0.325553983,-0.209688619,3.57628295E-07
-	rot = 0.500000417,-0.500000298,0.499999195,0.500000298
+	rot = 0.500000238,-0.500000417,0.499999464,0.500000119
 	attRot = 0,0,-0.707106769,0.707106769
 	attRot0 = 0.50000006,-0.500000119,0.49999997,-0.499999911
 	mir = 1,1,1
@@ -3325,10 +3384,10 @@ PART
 	part = wheelMed_4292700982
 	partName = Part
 	persistentId = 2866866203
-	pos = 0.637073934,10.2642918,-1.45076942
+	pos = 0.63707298,10.2642918,-1.45076752
 	attPos = 0,0,0
 	attPos0 = -0.264292598,0.490000576,2.98023565E-07
-	rot = -0.707107186,-5.96046448E-08,0.70710659,3.87430191E-07
+	rot = -0.707107186,-8.94069672E-08,0.707106709,2.98023224E-07
 	attRot = -0.99999994,0,0,0
 	attRot0 = 3.5762784E-07,2.98023188E-08,0.707106709,-0.707106888
 	mir = 1,1,1
@@ -3504,195 +3563,15 @@ PART
 }
 PART
 {
-	part = longAntenna_4292244588
-	partName = Part
-	persistentId = 7934986
-	pos = -0.391147465,10,-0.00600058446
-	attPos = 0,0,0
-	attPos0 = -0.391147465,-0.0060005798,9.31322575E-10
-	rot = 0.707106948,-0.707106709,-5.96046448E-08,-8.94069672E-08
-	attRot = 0,0,0,1
-	attRot0 = 0.500000119,-0.50000006,0.49999994,0.5
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = longAntenna_4292242822
-	srfN = srfAttach,probeCoreHex.v2_4293210486,collider_base.collider
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableAntenna
-		isEnabled = True
-		currentRotation = (-0.707106829, 0, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = longAntenna_4292242822
-	partName = Part
-	persistentId = 743178602
-	pos = 0.391147465,10,-0.00600061938
-	attPos = 0,0,0
-	attPos0 = 0.391147465,-0.00600061473,9.31322575E-10
-	rot = 0.707106948,0.707106709,1.1920929E-07,-8.94069672E-08
-	attRot = 0,0,0,1
-	attRot0 = 0.500000119,0.50000006,-0.499999911,0.5
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = longAntenna_4292244588
-	srfN = srfAttach,probeCoreHex.v2_4293210486,collider_base.collider
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableAntenna
-		isEnabled = True
-		currentRotation = (-0.707106829, 0, 0, 0.707106829)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 1
-		deployState = RETRACTED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleDataTransmitter
-		isEnabled = True
-		xmitIncomplete = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			StartTransmissionAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
 	part = controller1000_4292678588
 	partName = Part
 	persistentId = 1038209178
-	pos = -2.9867909E-08,10.3416491,-0.00509497523
+	pos = 2.98658627E-08,10.3416252,-0.020630151
 	attPos = 0,0,0
-	attPos0 = -2.9867909E-08,-0.00509500504,-0.341649085
-	rot = -0.707106948,7.05393575E-08,7.05393575E-08,-0.707106709
+	attPos0 = 2.98658627E-08,-0.0206301808,-0.341625243
+	rot = -0.707106829,7.05397269E-08,7.05397412E-08,-0.707106829
 	attRot = 0,0,0,1
-	attRot0 = -1.78813934E-07,9.97577132E-08,0,-1
+	attRot0 = 0,9.97582461E-08,1.4210853E-14,-1
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -3708,7 +3587,7 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	srfN = srfAttach,probeCoreHex.v2_4293210486,collider_base.collider
+	srfN = srfAttach,probeCoreHex.v2_4293210486,collider_base
 	EVENTS
 	{
 	}
@@ -3814,7 +3693,7 @@ PART
 			{
 				persistentId = 1904069142
 				moduleId = 3487395168
-				partNickName = G-11 Hinge
+				partNickName = 
 				rowIndex = 0
 				axisName = targetAngle
 				SYMPARTS
@@ -3831,7 +3710,7 @@ PART
 			{
 				persistentId = 3851348280
 				moduleId = 2394473854
-				partNickName = G-11 Hinge
+				partNickName = 
 				rowIndex = 2
 				axisName = targetAngle
 				SYMPARTS
@@ -3847,614 +3726,6 @@ PART
 		}
 		CONTROLLEDACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = LgRadialSolarPanel_4293156584
-	partName = Part
-	persistentId = 29995923
-	pos = 2.8582086E-08,10.3269405,-0.999319851
-	attPos = 0,0,0
-	attPos0 = 2.8582086E-08,0.663420379,-0.326940566
-	rot = -6.1390875E-12,0.707107008,0.70710665,-6.13908403E-12
-	attRot = 0,0,0,1
-	attRot0 = -2.60208501E-18,1,-2.68220873E-07,-8.68197788E-12
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4292702740,truss3x
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 0, 0, 1)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 0
-		deployState = EXTENDED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				active = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = LgRadialSolarPanel_4292240410
-	partName = Part
-	persistentId = 940099267
-	pos = 0,9.67542267,-1.04961026
-	attPos = 0,0,0
-	attPos0 = 0,0.613129973,0.324577063
-	rot = 0.707106709,6.13908533E-12,6.1390888E-12,0.707106948
-	attRot = 0,0,0,1
-	attRot0 = -1.78813934E-07,8.68197961E-12,2.60208521E-18,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4292702740,truss3x
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleDeployableSolarPanel
-		isEnabled = True
-		efficiencyMult = 1
-		launchUT = -1
-		currentRotation = (0, 0, 0, 1)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 0
-		deployState = EXTENDED
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-				active = False
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = RobotArmScanner.S3_4292218268
-	partName = Part
-	persistentId = 3423163971
-	pos = -0.14567402,10.3245697,2.94479775
-	attPos = 0,0,0
-	attPos0 = -0.14567402,1.28205395,-0.324569553
-	rot = 2.08616257E-07,3.90312782E-18,-1.43895798E-11,-1.00000012
-	attRot = 0,0.99999994,0,0
-	attRot0 = 0.707106948,-1.01749659E-11,-1.01749711E-11,-0.707106709
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4293184222,truss3x
-	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRobotArmScanner
-		isEnabled = True
-		currentRotation = (1.28700865E-32, -1.13446405E-16, 1.13446405E-16, 1)
-		storedAnimationTime = 0
-		storedAnimationSpeed = 0
-		deployState = RETRACTED
-		stagingEnabled = True
-		destroyOnBreakObject = DrillParticles
-		destroyOnBreakObject = DrillSmoke
-		destroyOnBreakObject = DrillSpark
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ExtendPanelsAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ExtendAction
-			{
-				actionGroup = None
-			}
-			RetractAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		SCANNEREFFECTS
-		{
-			EFFECT
-			{
-				className = RobotArmFXSpectrometer
-				effectStartTime = 1.5
-				effectStopTime = 3
-				lightTransformName = LightTransform
-			}
-			EFFECT
-			{
-				className = RobotArmFXLaser
-				effectStartTime = 5
-				effectStopTime = 6.5
-				laserEffectTransformName = LaserTransform
-				configLaserEffectColor = #FF0000
-				laserEffectWidth = 0.00999999978
-			}
-			EFFECT
-			{
-				className = RobotArmFXDrill
-				effectStartTime = 9.80000019
-				effectStopTime = 15
-				drillBaseTransformName = DrillBaseTransform
-				drillTipTransformName = DrillHeadTransform
-				drillEffectTransformName = DrillParticles
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-				active = False
-			}
-			ResetAction
-			{
-				actionGroup = None
-				active = False
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = sensorThermometer_4292197268
-	partName = Part
-	persistentId = 2665839846
-	pos = -0.264988631,10.3245687,-2.76792383
-	attPos = 0,0,0
-	attPos0 = -0.264988631,-1.10518217,-0.324568599
-	rot = -0.70710665,-6.13908403E-12,-6.1390875E-12,-0.707107008
-	attRot = 0,0,0,1
-	attRot0 = 2.68220873E-07,-8.68197788E-12,-2.60208501E-18,-1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4292702740,truss3x
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnviroSensor
-		isEnabled = True
-		sensorActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-			}
-			ResetAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = sensorAccelerometer_4292190260
-	partName = Part
-	persistentId = 3303485285
-	pos = 0.0718607455,10.3245687,-2.79304099
-	attPos = 0,0,0
-	attPos0 = 0.0718607455,-1.13029909,-0.324568599
-	rot = -0.70710665,-6.13908403E-12,-6.1390875E-12,-0.707107008
-	attRot = 0,0,0,1
-	attRot0 = 2.68220873E-07,-8.68197788E-12,-2.60208501E-18,-1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4292702740,truss3x
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnviroSensor
-		isEnabled = True
-		sensorActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-			}
-			ResetAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = sensorGravimeter_4292186660
-	partName = Part
-	persistentId = 1402266109
-	pos = -0.120249644,10.3245687,-2.79388356
-	attPos = 0,0,0
-	attPos0 = -0.120249644,-1.13114166,-0.324568599
-	rot = -0.70710665,-6.13908403E-12,-6.1390875E-12,-0.707107008
-	attRot = 0,0,0,1
-	attRot0 = 2.68220873E-07,-8.68197788E-12,-2.60208501E-18,-1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4292702740,truss3x
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnviroSensor
-		isEnabled = True
-		sensorActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-			}
-			ResetAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = sensorBarometer_4292179794
-	partName = Part
-	persistentId = 3208777101
-	pos = 0.244638085,10.3245687,-2.76796007
-	attPos = 0,0,0
-	attPos0 = 0.244638085,-1.10521841,-0.324568599
-	rot = -0.70710665,-6.13908403E-12,-6.1390875E-12,-0.707107008
-	attRot = 0,0,0,1
-	attRot0 = 2.68220873E-07,-8.68197788E-12,-2.60208501E-18,-1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	srfN = srfAttach,trussPiece3x_4292702740,truss3x
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleEnviroSensor
-		isEnabled = True
-		sensorActive = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ToggleAction
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleScienceExperiment
-		isEnabled = True
-		Deployed = False
-		Inoperable = False
-		cooldownToGo = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			DeployAction
-			{
-				actionGroup = None
-			}
-			ResetAction
-			{
-				actionGroup = None
-			}
 		}
 		UPGRADESAPPLIED
 		{
