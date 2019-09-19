@@ -2,9 +2,9 @@ ship = Untitled Space Craft
 version = 1.7.3
 description = 
 type = SPH
-size = 8.53230286,1.86974335,4.3584466
+size = 3.93825245,4.33234978,1.91313505
 steamPublishedFileId = 0
-persistentId = 619476131
+persistentId = 2173583926
 rot = 0,0,0,0
 missionFlag = Squad/Flags/ugly_flag_2_black
 vesselType = Debris
@@ -14,14 +14,14 @@ OverrideAxisControl = 0,0,0,0
 OverrideGroupNames = ,,,
 PART
 {
-	part = miniFuselage_4286449646
+	part = trussPiece3x_4293791566
 	partName = Part
-	persistentId = 2473106947
-	pos = 0,10,0
+	persistentId = 1919587462
+	pos = 0.120246269,9.72763729,0.0373088382
 	attPos = 0,0,0
-	attPos0 = 0,10,0
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
+	attPos0 = 0.0953043029,10.0381565,0.281352013
+	rot = -1,-4.67924008E-24,1.40377199E-23,8.94069672E-08
+	attRot = 0.707106769,0,0,0.707106769
 	attRot0 = 0.707106769,0,0,0.707106769
 	mir = 1,1,1
 	symMethod = Mirror
@@ -38,19 +38,10 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = miniJetEngine_4286422988
-	link = miniFuselage_4286415202
-	link = basicFin_4286306802
-	link = GearFixed_4286247738
-	link = GearFixed_4286246678
-	link = batteryPack_4286233120
-	link = batteryPack_4286231602
-	link = batteryPack_4286229212
-	link = batteryPack_4286228520
-	link = hinge.01.s_4286373536
-	link = hinge.01.s_4285899206
-	attN = top,miniFuselage_4286415202_0|0.46875|0_0|1|0_0|0.46875|0_0|1|0
-	attN = bottom,miniJetEngine_4286422988_0|-0.46875|0_0|-1|0_0|-0.46875|0_0|-1|0
+	link = rotoServo.03_4293602384
+	link = rotoServo.03_4293599516
+	attN = bottom,hinge.01_4293779244_0|-1.47523797|0_0|-1|0_0|-1.47523797|0_0|-1|0
+	attN = top,Null_0_0|1.47523797|0_0|1|0_0|1.47523797|0_0|1|0
 	EVENTS
 	{
 	}
@@ -60,45 +51,37 @@ PART
 	PARTDATA
 	{
 	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 50
-		maxAmount = 50
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
 }
 PART
 {
-	part = miniJetEngine_4286422988
+	part = hinge.01_4293779244
 	partName = Part
-	persistentId = 420263898
-	pos = 0,10,-0.468750417
+	persistentId = 1850562086
+	pos = 0.120246269,11.5153751,0.0373090766
 	attPos = 0,0,0
-	attPos0 = 0,-0.468750119,5.96046448E-08
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
+	attPos0 = 0.120246269,11.5153751,0.0373090766
+	rot = -0.707106769,0,0,-0.707106769
+	attRot = 0,0,0,-0.999999881
+	attRot0 = 0.707106769,0,0,0.707106769
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
 	rigidAttachment = False
-	istg = 0
+	istg = -1
 	resPri = 0
 	dstg = 0
-	sidx = 0
-	sqor = 0
+	sidx = -1
+	sqor = -1
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 150
+	modMass = 0.0600000024
 	modSize = 0,0,0
-	attN = top,miniFuselage_4286449646_0|0|0_0|1|0_0|0|0_0|1|0
+	link = probeCoreOcto2.v2_4293735708
+	link = trussPiece3x_4293791566
+	attN = bottom,probeCoreOcto2.v2_4293735708_0|-0.3125|0_0|-1|0_0|-0.3125|0_0|-1|0
+	attN = top,trussPiece3x_4293791566_0|0.3125|0_0|1|0_0|0|0.31250003_7.94093388E-23|-4.76837158E-07|1
 	EVENTS
 	{
 	}
@@ -110,44 +93,69 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleEnginesFX
+		name = ModuleRoboticServoHinge
 		isEnabled = True
-		independentThrottle = False
-		independentThrottlePercentage = 0
-		staged = False
-		flameout = False
-		EngineIgnited = False
-		engineShutdown = False
-		currentThrottle = 0
-		thrustPercentage = 100
-		manuallyOverridden = False
-		includeinDVCalcs = False
+		softMinMaxAngles = (-90, 90)
+		targetAngle = 90
+		mirrorRotation = False
+		traverseVelocity = 90
+		hingeDamping = 100
+		previousTargetAngle = 90
+		servoIsLocked = False
+		servoIsMotorized = True
+		jointParentRotation = 1.28700865E-32,-1.13446405E-16,1.13446405E-16,1
+		servoMotorIsEngaged = True
+		servoMotorSize = 100
+		servoMotorLimit = 100
+		servoTransformPosition = 0,0,0
+		servoTransformRotation = 0.707106829,0,0,0.707106829
+		useMultipleDragCubes = False
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			OnAction
+			MaximumAngleAction
 			{
 				actionGroup = None
 			}
-			ShutdownAction
+			MinimumAngleAction
 			{
 				actionGroup = None
 			}
-			ActivateAction
+			ToggleHingeAction
 			{
 				actionGroup = None
 			}
-			ToggleThrottle
+			ToggleServoLockedAction
+			{
+				actionGroup = None
+			}
+			ServoEngageLockAction
+			{
+				actionGroup = None
+			}
+			ServoDisgageLockAction
+			{
+				actionGroup = None
+			}
+			ToggleMotorAction
+			{
+				actionGroup = None
+			}
+			MotorOnAction
+			{
+				actionGroup = None
+			}
+			MotorOffAction
 			{
 				actionGroup = None
 			}
 		}
 		AXISGROUPS
 		{
-			independentThrottlePercentage
+			targetAngle
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -157,7 +165,27 @@ PART
 				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
-			thrustPercentage
+			traverseVelocity
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			hingeDamping
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			servoMotorLimit
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
@@ -174,38 +202,9 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleAlternator
+		name = ModulePartVariants
 		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleTestSubject
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleSurfaceFX
-		isEnabled = True
+		useVariantMass = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -220,15 +219,15 @@ PART
 }
 PART
 {
-	part = miniFuselage_4286415202
+	part = probeCoreOcto2.v2_4293735708
 	partName = Part
-	persistentId = 1322054344
-	pos = 0,10,0.937500715
+	persistentId = 2851677293
+	pos = 0.120246269,11.5153751,-0.336252838
 	attPos = 0,0,0
-	attPos0 = 0,0.937500119,-1.1920929E-07
-	rot = 0.707106829,0,0,0.707106829
+	attPos0 = 0,-0.373562038,-2.98023224E-08
+	rot = -0.707106829,0,0,-0.707106709
 	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
+	attRot0 = 8.94069672E-08,0,0,1
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -244,62 +243,9 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = probeCoreOcto.v2_4286351420
-	link = batteryPack_4286226138
-	link = batteryPack_4286224918
-	attN = top,probeCoreOcto.v2_4286351420_0|0.46875|0_0|1|0_0|0.46875|0_0|1|0
-	attN = bottom,miniFuselage_4286449646_0|-0.46875|0_0|-1|0_0|-0.46875|0_0|-1|0
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = LiquidFuel
-		amount = 50
-		maxAmount = 50
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = probeCoreOcto.v2_4286351420
-	partName = Part
-	persistentId = 712767424
-	pos = 0,10,1.59333372
-	attPos = 0,0,0
-	attPos0 = 0,0.655832112,-1.1920924E-07
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 0
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	link = miniIntake_4286399862
-	link = GearFree_4286256442
-	attN = bottom,miniFuselage_4286415202_0|-0.187081799|0_0|-1|0_0|-0.187081799|0_0|-1|0
-	attN = top,miniIntake_4286399862_0|0.187081799|0_0|1|0_0|0.187081799|0_0|1|0
+	link = hinge.01_4293772962
+	attN = bottom,hinge.01_4293772962_0|-0.0610621013|0_0|-1|0_0|-0.0610621013|0_0|-1|0
+	attN = top,hinge.01_4293779244_0|0.0610621013|0_0|1|0_0|0.0610621013|0_0|1|0
 	EVENTS
 	{
 	}
@@ -327,41 +273,6 @@ PART
 				actionGroup = None
 			}
 			HibernateToggle
-			{
-				actionGroup = None
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleReactionWheel
-		isEnabled = True
-		actuatorModeCycle = 0
-		authorityLimiter = 100
-		stateString = Active
-		stagingEnabled = True
-		WheelState = Active
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			CycleAction
-			{
-				actionGroup = None
-			}
-			Activate
-			{
-				actionGroup = None
-			}
-			Deactivate
-			{
-				actionGroup = None
-			}
-			Toggle
 			{
 				actionGroup = None
 			}
@@ -1001,8 +912,8 @@ PART
 	RESOURCE
 	{
 		name = ElectricCharge
-		amount = 10
-		maxAmount = 10
+		amount = 5
+		maxAmount = 5
 		flowState = True
 		isTweakable = True
 		hideFlow = False
@@ -1012,15 +923,15 @@ PART
 }
 PART
 {
-	part = miniIntake_4286399862
+	part = hinge.01_4293772962
 	partName = Part
-	persistentId = 957149853
-	pos = 0,10,1.78041625
+	persistentId = 63746290
+	pos = 0.120246269,11.5153751,-0.709814787
 	attPos = 0,0,0
-	attPos0 = 0,0.18708235,0
-	rot = 0.707106829,0,0,0.707106829
-	attRot = 0,0,0,1
-	attRot0 = 0,0,0,1
+	attPos0 = 0,-0.373562008,3.69957789E-08
+	rot = -1.49011612E-07,0,0,1
+	attRot = 0.707106709,0,0,-0.707106709
+	attRot0 = 0.707106829,0,0,-0.707106829
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -1033,10 +944,12 @@ PART
 	sepI = -1
 	attm = 0
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 150
+	modMass = 0.0600000024
 	modSize = 0,0,0
-	attN = bottom01,probeCoreOcto.v2_4286351420_0|0|0_0|-1|0_0|0|0_0|-1|0
+	link = trussPiece3x_4293515514
+	attN = bottom,trussPiece3x_4293515514_0|-0.3125|0_0|-1|0_0|-0.3125|0_0|-1|0
+	attN = top,probeCoreOcto2.v2_4293735708_0|0.3125|0_0|1|0_0|-1.19209318E-07|0.31250006_6.53075161E-23|-1.78813934E-07|0.99999994
 	EVENTS
 	{
 	}
@@ -1048,47 +961,141 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleResourceIntake
+		name = ModuleRoboticServoHinge
 		isEnabled = True
-		intakeEnabled = True
+		softMinMaxAngles = (-90, 90)
+		targetAngle = 90
+		mirrorRotation = False
+		traverseVelocity = 90
+		hingeDamping = 100
+		previousTargetAngle = 90
+		servoIsLocked = False
+		servoIsMotorized = True
+		jointParentRotation = 1.28700865E-32,-1.13446405E-16,1.13446405E-16,1
+		servoMotorIsEngaged = True
+		servoMotorSize = 100
+		servoMotorLimit = 100
+		servoTransformPosition = 0,0,0
+		servoTransformRotation = 0.707106829,0,0,0.707106829
+		useMultipleDragCubes = False
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			ToggleAction
+			MaximumAngleAction
 			{
 				actionGroup = None
+			}
+			MinimumAngleAction
+			{
+				actionGroup = None
+			}
+			ToggleHingeAction
+			{
+				actionGroup = None
+			}
+			ToggleServoLockedAction
+			{
+				actionGroup = None
+			}
+			ServoEngageLockAction
+			{
+				actionGroup = None
+			}
+			ServoDisgageLockAction
+			{
+				actionGroup = None
+			}
+			ToggleMotorAction
+			{
+				actionGroup = None
+			}
+			MotorOnAction
+			{
+				actionGroup = None
+			}
+			MotorOffAction
+			{
+				actionGroup = None
+			}
+		}
+		AXISGROUPS
+		{
+			targetAngle
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			traverseVelocity
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			hingeDamping
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+			}
+			servoMotorLimit
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 			}
 		}
 		UPGRADESAPPLIED
 		{
 		}
 	}
-	RESOURCE
+	MODULE
 	{
-		name = IntakeAir
-		amount = 0.5
-		maxAmount = 0.5
-		flowState = True
-		isTweakable = False
-		hideFlow = False
-		isVisible = False
-		flowMode = Both
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
 	}
 }
 PART
 {
-	part = basicFin_4286306802
+	part = rotoServo.03_4293602384
 	partName = Part
-	persistentId = 2725432552
-	pos = 2.68009099E-08,10.3065662,-0.354907036
+	persistentId = 2785730548
+	pos = -0.206935972,8.50669765,0.0373085998
 	attPos = 0,0,0
-	attPos0 = 2.68009099E-08,-0.354906917,-0.306566238
-	rot = -0.50000006,0.50000006,0.50000006,-0.50000006
+	attPos0 = -0.327182233,1.22093964,2.98023224E-08
+	rot = -0.49999997,0.49999997,0.50000006,0.50000006
 	attRot = 0,0,0,1
-	attRot0 = 0,0.707106829,0,-0.707106829
+	attRot0 = 0.5,-0.5,0.5,0.5
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -1101,10 +1108,19 @@ PART
 	sepI = -1
 	attm = 1
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 150
+	modMass = 0.0600000024
 	modSize = 0,0,0
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
+	link = wheelMed_4293582048
+	link = wheelMed_4293584136
+	sym = rotoServo.03_4293599516
+	srfN = srfAttach,trussPiece3x_4293791566,truss3x
+	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = top,Null_0_0|0.624830008|0_0|1|0_-5.61404363E-08|0.624830067|-3.57627869E-07_1.19209332E-07|1.00000012|1.26440526E-07
+	attN = N1,Null_0_-2.94837914E-08|0.468621492|0.312414229_0|0|1_-1.88977367E-08|0.468621612|0.31241405_-5.96046306E-08|-2.38418579E-07|0.99999994
+	attN = N2,Null_0_-0.312518507|0.467194527|-0.000254200422_-1|0|5.96046448E-08_-0.312518418|0.467194617|-0.000254034996_-1|0|-5.96046448E-08
+	attN = N3,Null_0_-2.17166818E-09|0.468621403|-0.312414289_-1.22464685E-16|-1.22464685E-16|-1_-9.33831217E-08|0.468621552|-0.312414527_5.96046306E-08|2.38418579E-07|-0.99999994
+	attN = N4,Null_0_0.312414229|0.468621463|-2.11035776E-08_1.00000012|0|-1.1920929E-07_0.312414587|0.468621552|-3.57627869E-07_1|0|-2.38418579E-07
 	EVENTS
 	{
 	}
@@ -1116,8 +1132,106 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleLiftingSurface
+		name = ModuleRoboticRotationServo
 		isEnabled = True
+		softMinMaxAngles = (-179.990005, 180)
+		allowFullRotation = True
+		targetAngle = 0
+		inverted = False
+		traverseVelocity = 90
+		hingeDamping = 100
+		previousTargetAngle = 0
+		servoIsLocked = False
+		servoIsMotorized = True
+		jointParentRotation = 0,0,0,1
+		servoMotorIsEngaged = True
+		servoMotorSize = 100
+		servoMotorLimit = 100
+		servoTransformPosition = 0,2.2737367E-15,1.36560612E-08
+		servoTransformRotation = 0,0,0,1
+		useMultipleDragCubes = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MaximumAngleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			MinimumAngleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ToggleServoAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ToggleServoLockedAction
+			{
+				actionGroup = None
+			}
+			ServoEngageLockAction
+			{
+				actionGroup = None
+			}
+			ServoDisgageLockAction
+			{
+				actionGroup = None
+			}
+			ToggleMotorAction
+			{
+				actionGroup = None
+			}
+			MotorOnAction
+			{
+				actionGroup = None
+			}
+			MotorOffAction
+			{
+				actionGroup = None
+			}
+		}
+		AXISGROUPS
+		{
+			targetAngle
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			traverseVelocity
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			hingeDamping
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			servoMotorLimit
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1132,15 +1246,174 @@ PART
 }
 PART
 {
-	part = GearFree_4286256442
+	part = rotoServo.03_4293599516
 	partName = Part
-	persistentId = 1398231172
-	pos = 0,9.65987873,1.66707826
+	persistentId = 998623709
+	pos = 0.447428495,8.50669765,0.0373085998
 	attPos = 0,0,0
-	attPos0 = 0,0.0737445354,0.34012112
-	rot = 1.1920929E-07,-7.10542736E-15,1.21664129E-07,1.00000012
+	attPos0 = 0.327182233,1.22093964,2.98023224E-08
+	rot = -0.49999997,-0.49999997,-0.50000006,0.50000006
 	attRot = 0,0,0,1
-	attRot0 = -0.707106769,8.60295231E-08,8.60295373E-08,0.707106888
+	attRot0 = 0.5,0.5,-0.5,0.5
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 150
+	modMass = 0.0600000024
+	modSize = 0,0,0
+	link = wheelMed_4293578514
+	link = wheelMed_4293577586
+	sym = rotoServo.03_4293602384
+	srfN = srfAttach,trussPiece3x_4293791566,truss3x
+	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = top,Null_0_0|0.624830008|0_0|1|0_5.61404363E-08|0.624830067|-3.57627869E-07_-1.19209332E-07|1.00000012|1.26440526E-07
+	attN = N1,Null_0_-2.94837914E-08|0.468621492|0.312414229_0|0|1_1.88977367E-08|0.468621612|0.31241405_5.96046306E-08|-2.38418579E-07|0.99999994
+	attN = N2,Null_0_-0.312518507|0.467194527|-0.000254200422_-1|0|5.96046448E-08_-0.312518299|0.467194617|-0.000254034996_-1|0|5.96046448E-08
+	attN = N3,Null_0_-2.17166818E-09|0.468621403|-0.312414289_-1.22464685E-16|-1.22464685E-16|-1_9.33831217E-08|0.468621552|-0.312414527_-5.96046306E-08|2.38418579E-07|-0.99999994
+	attN = N4,Null_0_0.312414229|0.468621463|-2.11035776E-08_1.00000012|0|-1.1920929E-07_0.312414706|0.468621552|-3.57627869E-07_1|0|-1.78813934E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRoboticRotationServo
+		isEnabled = True
+		softMinMaxAngles = (-179.990005, 180)
+		allowFullRotation = True
+		targetAngle = 0
+		inverted = False
+		traverseVelocity = 90
+		hingeDamping = 100
+		previousTargetAngle = 0
+		servoIsLocked = False
+		servoIsMotorized = True
+		jointParentRotation = 0,0,0,1
+		servoMotorIsEngaged = True
+		servoMotorSize = 100
+		servoMotorLimit = 100
+		servoTransformPosition = 0,2.2737367E-15,1.36560612E-08
+		servoTransformRotation = 0,0,0,1
+		useMultipleDragCubes = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MaximumAngleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			MinimumAngleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ToggleServoAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ToggleServoLockedAction
+			{
+				actionGroup = None
+			}
+			ServoEngageLockAction
+			{
+				actionGroup = None
+			}
+			ServoDisgageLockAction
+			{
+				actionGroup = None
+			}
+			ToggleMotorAction
+			{
+				actionGroup = None
+			}
+			MotorOnAction
+			{
+				actionGroup = None
+			}
+			MotorOffAction
+			{
+				actionGroup = None
+			}
+		}
+		AXISGROUPS
+		{
+			targetAngle
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			traverseVelocity
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			hingeDamping
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			servoMotorLimit
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = wheelMed_4293582048
+	partName = Part
+	persistentId = 653118481
+	pos = -0.841762483,8.79306412,0.0373088382
+	attPos = 0,0,0
+	attPos0 = 0,0.634826541,0.286366463
+	rot = 1,-2.98023117E-08,-1.04308143E-07,0
+	attRot = -0.99999994,0,0,0
+	attRot0 = 0.50000006,-0.5,0.499999911,-0.50000006
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = ForceHeaviest
@@ -1156,7 +1429,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	srfN = srfAttach,probeCoreOcto.v2_4286351420,collider.collider
+	sym = wheelMed_4293578514
+	srfN = srfAttach,rotoServo.03_4293602384,Rotor
 	EVENTS
 	{
 	}
@@ -1170,7 +1444,7 @@ PART
 	{
 		name = ModuleWheelBase
 		isEnabled = True
-		wheelType = FREE
+		wheelType = MOTORIZED
 		isGrounded = False
 		autoFriction = True
 		frictionMultiplier = 1
@@ -1232,96 +1506,27 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleWheelDamage
+		name = ModuleWheelMotor
 		isEnabled = True
-		isDamaged = False
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = GearFixed_4286247738
-	partName = Part
-	persistentId = 1455069365
-	pos = -0.312163323,10,-0.389909357
-	attPos = 0,0,0
-	attPos0 = -0.312163323,-0.389909059,5.96046448E-08
-	rot = 0.0055553019,2.96363023E-08,-2.99674241E-08,0.999984741
-	attRot = 0,0,0,1
-	attRot0 = -0.703167737,-2.34138015E-10,-4.21461976E-08,0.711024106
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = ForceHeaviest
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = GearFixed_4286246678
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleWheelBase
-		isEnabled = True
-		wheelType = FREE
-		isGrounded = False
-		autoFriction = True
-		frictionMultiplier = 1
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActAutoFrictionToggle
+			MotorToggle
 			{
 				actionGroup = None
 			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModuleWheelSuspension
-		isEnabled = True
-		springTweakable = 1
-		damperTweakable = 1
-		autoSpringDamper = True
-		suspensionPos = (-1, -1, -1)
-		autoBoost = 0
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -1364,19 +1569,34 @@ PART
 		{
 		}
 	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
 }
 PART
 {
-	part = GearFixed_4286246678
+	part = wheelMed_4293578514
 	partName = Part
-	persistentId = 1264813954
-	pos = 0.312163323,10,-0.389909446
+	persistentId = 847260703
+	pos = 1.08225501,8.79306412,0.0373088382
 	attPos = 0,0,0
-	attPos0 = 0.312163323,-0.389909148,5.96046448E-08
-	rot = -3.02102379E-08,0.999984741,0.0055553019,-1.40744119E-08
-	attRot = 0,0,0,1
-	attRot0 = -1.14097549E-08,0.711024106,-0.703167737,-3.13139807E-08
-	mir = 1,1,-1
+	attPos0 = 0,0.634826541,0.286366463
+	rot = 1.19209304E-07,0,-1,5.96046448E-08
+	attRot = -0.99999994,0,0,0
+	attRot0 = -0.499999881,0.50000006,-0.50000006,0.5
+	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = ForceHeaviest
 	rigidAttachment = False
@@ -1391,8 +1611,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = GearFixed_4286247738
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
+	sym = wheelMed_4293582048
+	srfN = srfAttach,rotoServo.03_4293599516,Rotor
 	EVENTS
 	{
 	}
@@ -1406,7 +1626,7 @@ PART
 	{
 		name = ModuleWheelBase
 		isEnabled = True
-		wheelType = FREE
+		wheelType = MOTORIZED
 		isGrounded = False
 		autoFriction = True
 		frictionMultiplier = 1
@@ -1440,6 +1660,55 @@ PART
 		}
 		ACTIONS
 		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
 		}
 		UPGRADESAPPLIED
 		{
@@ -1482,455 +1751,10 @@ PART
 		{
 		}
 	}
-}
-PART
-{
-	part = batteryPack_4286233120
-	partName = Part
-	persistentId = 3305895590
-	pos = -0.153164431,10.2652884,0.445036203
-	attPos = 0,0,0
-	attPos0 = -0.153164431,0.445035875,-0.265288442
-	rot = -0.683012664,-0.183012724,-0.183012754,-0.683012784
-	attRot = 0,0,0,1
-	attRot0 = 8.94069601E-08,-0.258819073,-2.98023188E-08,-0.965925813
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = batteryPack_4286231602
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 100
-		maxAmount = 100
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = batteryPack_4286231602
-	partName = Part
-	persistentId = 2012854997
-	pos = 0.153164431,10.2652884,0.445036203
-	attPos = 0,0,0
-	attPos0 = 0.153164431,0.445035875,-0.265288442
-	rot = 0.683012664,-0.183012694,-0.183012694,0.683012784
-	attRot = 0,0,0,1
-	attRot0 = -5.96046448E-08,-0.258819044,0,0.965925872
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = batteryPack_4286233120
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 100
-		maxAmount = 100
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = batteryPack_4286229212
-	partName = Part
-	persistentId = 2722212270
-	pos = -0.153171793,10.2653017,0.0748424232
-	attPos = 0,0,0
-	attPos0 = -0.153171793,0.0748423934,-0.265301734
-	rot = -0.683012664,-0.183012724,-0.183012754,-0.683012784
-	attRot = 0,0,0,1
-	attRot0 = 8.94069601E-08,-0.258819073,-2.98023188E-08,-0.965925813
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = batteryPack_4286228520
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 100
-		maxAmount = 100
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = batteryPack_4286228520
-	partName = Part
-	persistentId = 2886112220
-	pos = 0.153171793,10.2653017,0.0748424232
-	attPos = 0,0,0
-	attPos0 = 0.153171793,0.0748423934,-0.265301734
-	rot = 0.683012664,-0.183012694,-0.183012694,0.683012784
-	attRot = 0,0,0,1
-	attRot0 = -5.96046448E-08,-0.258819044,0,0.965925872
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = batteryPack_4286229212
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 100
-		maxAmount = 100
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = batteryPack_4286226138
-	partName = Part
-	persistentId = 2731230105
-	pos = -0.154975593,10.2684259,0.823256791
-	attPos = 0,0,0
-	attPos0 = -0.154975593,-0.11424394,-0.268425882
-	rot = -0.683012784,-0.183012724,-0.183012754,-0.683012664
-	attRot = 0,0,0,1
-	attRot0 = -5.96046448E-08,-0.258819073,-2.98023224E-08,-0.965925872
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = batteryPack_4286224918
-	srfN = srfAttach,miniFuselage_4286415202,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 100
-		maxAmount = 100
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = batteryPack_4286224918
-	partName = Part
-	persistentId = 4141242223
-	pos = 0.154975593,10.2684259,0.823256731
-	attPos = 0,0,0
-	attPos0 = 0.154975593,-0.11424394,-0.268425822
-	rot = 0.683012724,-0.183012679,-0.183012709,0.683012724
-	attRot = 0,0,0,1
-	attRot0 = 2.98023188E-08,-0.258819014,-2.98023188E-08,0.965925813
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
-	modSize = 0,0,0
-	sym = batteryPack_4286226138
-	srfN = srfAttach,miniFuselage_4286415202,CYLCOL
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	RESOURCE
-	{
-		name = ElectricCharge
-		amount = 100
-		maxAmount = 100
-		flowState = True
-		isTweakable = True
-		hideFlow = False
-		isVisible = True
-		flowMode = Both
-	}
-}
-PART
-{
-	part = hinge.01.s_4286373536
-	partName = Part
-	persistentId = 3250418979
-	pos = -0.413045228,10,0.19378987
-	attPos = 0,0,0
-	attPos0 = -0.413045228,0.19378984,-2.98023224E-08
-	rot = 0.50000006,-0.50000006,0.50000006,0.50000006
-	attRot = 0,0.707106769,0,0.707106769
-	attRot0 = 2.98023224E-08,-2.98023224E-08,0.707106829,0.707106829
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 50
-	modMass = 0.00999999978
-	modSize = 0,0,0
-	link = deltaWing_4285926750
-	sym = hinge.01.s_4285899206
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	attN = bottom,Null_0_0|-0.103479996|0_0|-1|0_0|-0.103479996|0_0|-1|0
-	attN = top,Null_0_0|0.103479996|0_0|1|0_3.12924072E-07|0.103480093|-2.51214624E-14_-3.57628039E-07|1.00000048|-4.21467696E-08
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
 	MODULE
 	{
-		name = ModuleRoboticServoHinge
+		name = ModuleTestSubject
 		isEnabled = True
-		softMinMaxAngles = (-90, 90)
-		targetAngle = 0
-		mirrorRotation = False
-		traverseVelocity = 90
-		hingeDamping = 100
-		previousTargetAngle = 0
-		servoIsLocked = False
-		servoIsMotorized = True
-		jointParentRotation = 0,0,0,1
-		servoMotorIsEngaged = True
-		servoMotorSize = 100
-		servoMotorLimit = 100
-		servoTransformPosition = 0,0,0
-		servoTransformRotation = 0,0,0,1
-		useMultipleDragCubes = False
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			MaximumAngleAction
-			{
-				actionGroup = None
-			}
-			MinimumAngleAction
-			{
-				actionGroup = None
-			}
-			ToggleHingeAction
-			{
-				actionGroup = None
-			}
-			ToggleServoLockedAction
-			{
-				actionGroup = None
-			}
-			ServoEngageLockAction
-			{
-				actionGroup = None
-			}
-			ServoDisgageLockAction
-			{
-				actionGroup = None
-			}
-			ToggleMotorAction
-			{
-				actionGroup = None
-			}
-			MotorOnAction
-			{
-				actionGroup = None
-			}
-			MotorOffAction
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			targetAngle
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			traverseVelocity
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			hingeDamping
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-			servoMotorLimit
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-	MODULE
-	{
-		name = ModulePartVariants
-		isEnabled = True
-		useVariantMass = True
 		stagingEnabled = True
 		EVENTS
 		{
@@ -1945,15 +1769,379 @@ PART
 }
 PART
 {
-	part = deltaWing_4285926750
+	part = wheelMed_4293584136
 	partName = Part
-	persistentId = 3573563690
-	pos = -0.516526222,9.96686935,0.160659239
+	persistentId = 1971037774
+	pos = -0.841762424,8.27563667,0.0373085998
 	attPos = 0,0,0
-	attPos0 = -0.0331305675,0.103480816,0.033130642
-	rot = 0.707107186,-4.04608897E-08,5.91741923E-07,0.70710659
+	attPos0 = -2.98023224E-08,0.634826481,-0.231060982
+	rot = 0,-1.04308143E-07,2.98023117E-08,-1
+	attRot = 0,0,0,1
+	attRot0 = -0.50000006,0.499999911,0.5,-0.50000006
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = wheelMed_4293577586
+	srfN = srfAttach,rotoServo.03_4293602384,Rotor
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = wheelMed_4293577586
+	partName = Part
+	persistentId = 1329889852
+	pos = 1.08225489,8.27563667,0.0373085998
+	attPos = 0,0,0
+	attPos0 = 2.98023224E-08,0.634826422,-0.231060982
+	rot = 5.96046448E-08,-1,0,-5.32907052E-15
+	attRot = 0,0,0,1
+	attRot0 = 0.50000006,-0.5,-0.5,0.49999994
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = wheelMed_4293584136
+	srfN = srfAttach,rotoServo.03_4293599516,Rotor
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = trussPiece3x_4293515514
+	partName = Part
+	persistentId = 2070313111
+	pos = 0.120246269,9.72763824,-0.709813952
+	attPos = 0,0,0
+	attPos0 = 0,-1.78773844,1.19209318E-07
+	rot = 1,0,0,2.68220901E-07
 	attRot = 0.707106769,0,0,0.707106769
-	attRot0 = 5.70668533E-07,-1.93874143E-08,-0.707106531,0.707107127
+	attRot0 = 1,0,0,8.94069672E-08
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -1964,14 +2152,15 @@ PART
 	sidx = -1
 	sqor = -1
 	sepI = -1
-	attm = 1
+	attm = 0
 	sameVesselCollision = False
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = StandardCtrlSrf_4285906154
-	sym = deltaWing_4285899128
-	srfN = srfAttach,hinge.01.s_4286373536,COL2
+	link = rotoServo.03_4293515482
+	link = rotoServo.03_4293515096
+	attN = bottom,hinge.01_4293772962_0|-1.47523797|0_0|-1|0_0|-1.47523797|0_0|-1|0
+	attN = top,Null_0_0|1.47523797|0_0|1|0_0|1.47523797|0_0|1|0
 	EVENTS
 	{
 	}
@@ -1981,33 +2170,18 @@ PART
 	PARTDATA
 	{
 	}
-	MODULE
-	{
-		name = ModuleLiftingSurface
-		isEnabled = True
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
 }
 PART
 {
-	part = StandardCtrlSrf_4285906154
+	part = rotoServo.03_4293515482
 	partName = Part
-	persistentId = 2211937977
-	pos = -3.34698701,9.9668684,-0.832566977
+	persistentId = 1014337760
+	pos = -0.206935972,8.50669861,-0.709813237
 	attPos = 0,0,0
-	attPos0 = -2.83045912,-0.993222594,-2.97564441E-07
-	rot = 0.707107306,-3.6878501E-07,9.37767368E-07,0.707106471
+	attPos0 = -0.327182233,1.22093964,2.98023224E-08
+	rot = 0.500000119,-0.500000119,-0.499999851,-0.499999851
 	attRot = 0,0,0,1
-	attRot0 = 2.08616015E-07,1.25168356E-08,5.06639481E-07,1
+	attRot0 = 0.5,-0.5,0.5,0.5
 	mir = 1,1,1
 	symMethod = Mirror
 	autostrutMode = Off
@@ -2020,11 +2194,19 @@ PART
 	sepI = -1
 	attm = 1
 	sameVesselCollision = False
-	modCost = 0
-	modMass = 0
+	modCost = 150
+	modMass = 0.0600000024
 	modSize = 0,0,0
-	sym = StandardCtrlSrf_4285899080
-	srfN = srfAttach,deltaWing_4285926750,COL 2
+	link = wheelMed_4293515372
+	link = wheelMed_4293515234
+	sym = rotoServo.03_4293515096
+	srfN = srfAttach,trussPiece3x_4293515514,truss3x
+	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = top,Null_0_0|0.624830008|0_0|1|0_-1.6910937E-07|0.624830067|5.96046448E-07_1.19209275E-07|1.00000012|1.26440625E-07
+	attN = N1,Null_0_-2.94837914E-08|0.468621492|0.312414229_0|0|1_1.34452591E-08|0.468621612|0.312414765_-5.96046164E-08|-1.78813934E-07|0.999999821
+	attN = N2,Null_0_-0.312518507|0.467194527|-0.000254200422_-1|0|5.96046448E-08_-0.312518597|0.467194617|-0.00025331974_-0.99999994|0|5.96046448E-08
+	attN = N3,Null_0_-2.17166818E-09|0.468621403|-0.312414289_-1.22464685E-16|-1.22464685E-16|-1_-1.13245363E-07|0.468621552|-0.312413573_-1.78813934E-07|1.78813934E-07|-0.999999821
+	attN = N4,Null_0_0.312414229|0.468621463|-2.11035776E-08_1.00000012|0|-1.1920929E-07_0.312414557|0.468621552|8.34465027E-07_0.99999994|0|-1.78813934E-07
 	EVENTS
 	{
 	}
@@ -2036,101 +2218,12 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleControlSurface
+		name = ModuleRoboticRotationServo
 		isEnabled = True
-		mirrorDeploy = False
-		usesMirrorDeploy = True
-		ignorePitch = False
-		ignoreYaw = False
-		ignoreRoll = False
-		deploy = False
-		deployInvert = False
-		partDeployInvert = False
-		authorityLimiter = 100
-		stagingEnabled = True
-		EVENTS
-		{
-		}
-		ACTIONS
-		{
-			ActionToggle
-			{
-				actionGroup = None
-			}
-			ActionExtend
-			{
-				actionGroup = None
-			}
-			ActionRetract
-			{
-				actionGroup = None
-			}
-		}
-		AXISGROUPS
-		{
-			authorityLimiter
-			{
-				axisGroup = None
-				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				axisInverted = None
-				overrideIncremental0 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental1 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental2 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-				overrideIncremental3 = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
-			}
-		}
-		UPGRADESAPPLIED
-		{
-		}
-	}
-}
-PART
-{
-	part = hinge.01.s_4285899206
-	partName = Part
-	persistentId = 2899257297
-	pos = 0.413045228,10,0.19378987
-	attPos = 0,0,0
-	attPos0 = 0.413045228,0.19378984,-2.98023224E-08
-	rot = 0.50000006,0.50000006,-0.50000006,0.50000006
-	attRot = 0,0.707106769,0,0.707106769
-	attRot0 = 2.98023224E-08,2.98023224E-08,-0.707106829,0.707106829
-	mir = 1,1,1
-	symMethod = Mirror
-	autostrutMode = Off
-	rigidAttachment = False
-	istg = -1
-	resPri = 0
-	dstg = 0
-	sidx = -1
-	sqor = -1
-	sepI = -1
-	attm = 1
-	sameVesselCollision = False
-	modCost = 50
-	modMass = 0.00999999978
-	modSize = 0,0,0
-	link = deltaWing_4285899128
-	sym = hinge.01.s_4286373536
-	srfN = srfAttach,miniFuselage_4286449646,CYLCOL
-	attN = bottom,Null_0_0|-0.103479996|0_0|-1|0_0|-0.103479996|0_0|-1|0
-	attN = top,Null_0_0|0.103479996|0_0|1|0_1.93714911E-07|0.103480093|1.7585024E-14_2.84217094E-14|1.00000048|2.42594471E-14
-	EVENTS
-	{
-	}
-	ACTIONS
-	{
-	}
-	PARTDATA
-	{
-	}
-	MODULE
-	{
-		name = ModuleRoboticServoHinge
-		isEnabled = True
-		softMinMaxAngles = (-90, 90)
+		softMinMaxAngles = (-179.990005, 180)
+		allowFullRotation = True
 		targetAngle = 0
-		mirrorRotation = False
+		inverted = False
 		traverseVelocity = 90
 		hingeDamping = 100
 		previousTargetAngle = 0
@@ -2140,7 +2233,7 @@ PART
 		servoMotorIsEngaged = True
 		servoMotorSize = 100
 		servoMotorLimit = 100
-		servoTransformPosition = 0,0,0
+		servoTransformPosition = 0,2.2737367E-15,1.36560612E-08
 		servoTransformRotation = 0,0,0,1
 		useMultipleDragCubes = False
 		stagingEnabled = True
@@ -2152,14 +2245,17 @@ PART
 			MaximumAngleAction
 			{
 				actionGroup = None
+				active = False
 			}
 			MinimumAngleAction
 			{
 				actionGroup = None
+				active = False
 			}
-			ToggleHingeAction
+			ToggleServoAction
 			{
 				actionGroup = None
+				active = False
 			}
 			ToggleServoLockedAction
 			{
@@ -2236,18 +2332,18 @@ PART
 }
 PART
 {
-	part = deltaWing_4285899128
+	part = wheelMed_4293515372
 	partName = Part
-	persistentId = 513894274
-	pos = 0.516526103,9.96686935,0.160659179
+	persistentId = 97750745
+	pos = -0.841762483,8.79306507,-0.709813714
 	attPos = 0,0,0
-	attPos0 = -0.0331305675,0.103480816,0.033130642
-	rot = 5.63248932E-07,0.707106411,0.707107246,-2.68070437E-08
-	attRot = 0.707106769,0,0,0.707106769
-	attRot0 = 5.70668533E-07,-1.93874143E-08,-0.707106531,0.707107127
+	attPos0 = 0,0.634826541,0.286366463
+	rot = -1,1.49011861E-08,1.04308114E-07,-2.68220901E-07
+	attRot = -0.99999994,0,0,0
+	attRot0 = 0.50000006,-0.5,0.499999911,-0.50000006
 	mir = 1,1,1
 	symMethod = Mirror
-	autostrutMode = Off
+	autostrutMode = ForceHeaviest
 	rigidAttachment = False
 	istg = -1
 	resPri = 0
@@ -2260,9 +2356,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	link = StandardCtrlSrf_4285899080
-	sym = deltaWing_4285926750
-	srfN = srfAttach,hinge.01.s_4285899206,COL2
+	sym = wheelMed_4293514980
+	srfN = srfAttach,rotoServo.03_4293515482,Rotor
 	EVENTS
 	{
 	}
@@ -2274,7 +2369,136 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleLiftingSurface
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
 		isEnabled = True
 		stagingEnabled = True
 		EVENTS
@@ -2290,18 +2514,18 @@ PART
 }
 PART
 {
-	part = StandardCtrlSrf_4285899080
+	part = wheelMed_4293515234
 	partName = Part
-	persistentId = 1138860270
-	pos = 3.34698844,9.9668684,-0.83256793
+	persistentId = 4250161165
+	pos = -0.841762424,8.27563763,-0.709813237
 	attPos = 0,0,0
-	attPos0 = -2.83045912,-0.993222594,-2.97564441E-07
-	rot = 8.91694754E-07,0.707106292,0.707107365,-4.14857567E-07
+	attPos0 = -2.98023224E-08,0.634826481,-0.231060982
+	rot = -3.57627869E-07,1.63912773E-07,-3.55271368E-14,1
 	attRot = 0,0,0,1
-	attRot0 = 2.08616015E-07,1.25168356E-08,5.06639481E-07,1
+	attRot0 = -0.50000006,0.499999911,0.5,-0.50000006
 	mir = 1,1,1
 	symMethod = Mirror
-	autostrutMode = Off
+	autostrutMode = ForceHeaviest
 	rigidAttachment = False
 	istg = -1
 	resPri = 0
@@ -2314,8 +2538,8 @@ PART
 	modCost = 0
 	modMass = 0
 	modSize = 0,0,0
-	sym = StandardCtrlSrf_4285906154
-	srfN = srfAttach,deltaWing_4285899128,COL 2
+	sym = wheelMed_4293514836
+	srfN = srfAttach,rotoServo.03_4293515482,Rotor
 	EVENTS
 	{
 	}
@@ -2327,44 +2551,666 @@ PART
 	}
 	MODULE
 	{
-		name = ModuleControlSurface
+		name = ModuleWheelBase
 		isEnabled = True
-		mirrorDeploy = True
-		usesMirrorDeploy = True
-		ignorePitch = False
-		ignoreYaw = False
-		ignoreRoll = False
-		deploy = False
-		deployInvert = False
-		partDeployInvert = False
-		authorityLimiter = 100
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
 		stagingEnabled = True
 		EVENTS
 		{
 		}
 		ACTIONS
 		{
-			ActionToggle
+			ActAutoFrictionToggle
 			{
 				actionGroup = None
 			}
-			ActionExtend
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
 			{
 				actionGroup = None
 			}
-			ActionRetract
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = rotoServo.03_4293515096
+	partName = Part
+	persistentId = 4018682811
+	pos = 0.447428495,8.50669861,-0.709813237
+	attPos = 0,0,0
+	attPos0 = 0.327182233,1.22093964,2.98023224E-08
+	rot = 0.500000119,0.500000119,0.499999851,-0.499999851
+	attRot = 0,0,0,1
+	attRot0 = 0.5,0.5,-0.5,0.5
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = Off
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 150
+	modMass = 0.0600000024
+	modSize = 0,0,0
+	link = wheelMed_4293514980
+	link = wheelMed_4293514836
+	sym = rotoServo.03_4293515482
+	srfN = srfAttach,trussPiece3x_4293515514,truss3x
+	attN = bottom,Null_0_0|0|0_0|-1|0_0|0|0_0|-1|0
+	attN = top,Null_0_0|0.624830008|0_0|1|0_1.6910937E-07|0.624830067|5.96046448E-07_-1.19209275E-07|1.00000012|1.26440625E-07
+	attN = N1,Null_0_-2.94837914E-08|0.468621492|0.312414229_0|0|1_-1.34452591E-08|0.468621612|0.312414765_5.96046164E-08|-1.78813934E-07|0.999999821
+	attN = N2,Null_0_-0.312518507|0.467194527|-0.000254200422_-1|0|5.96046448E-08_-0.312518537|0.467194617|-0.000252842903_-0.99999994|0|-5.96046448E-08
+	attN = N3,Null_0_-2.17166818E-09|0.468621403|-0.312414289_-1.22464685E-16|-1.22464685E-16|-1_1.13245363E-07|0.468621552|-0.312413573_1.78813934E-07|1.78813934E-07|-0.999999821
+	attN = N4,Null_0_0.312414229|0.468621463|-2.11035776E-08_1.00000012|0|-1.1920929E-07_0.312414616|0.468621552|3.57627869E-07_0.99999994|0|-1.78813934E-07
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleRoboticRotationServo
+		isEnabled = True
+		softMinMaxAngles = (-179.990005, 180)
+		allowFullRotation = True
+		targetAngle = 0
+		inverted = False
+		traverseVelocity = 90
+		hingeDamping = 100
+		previousTargetAngle = 0
+		servoIsLocked = False
+		servoIsMotorized = True
+		jointParentRotation = 0,0,0,1
+		servoMotorIsEngaged = True
+		servoMotorSize = 100
+		servoMotorLimit = 100
+		servoTransformPosition = 0,2.2737367E-15,1.36560612E-08
+		servoTransformRotation = 0,0,0,1
+		useMultipleDragCubes = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MaximumAngleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			MinimumAngleAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ToggleServoAction
+			{
+				actionGroup = None
+				active = False
+			}
+			ToggleServoLockedAction
+			{
+				actionGroup = None
+			}
+			ServoEngageLockAction
+			{
+				actionGroup = None
+			}
+			ServoDisgageLockAction
+			{
+				actionGroup = None
+			}
+			ToggleMotorAction
+			{
+				actionGroup = None
+			}
+			MotorOnAction
+			{
+				actionGroup = None
+			}
+			MotorOffAction
 			{
 				actionGroup = None
 			}
 		}
 		AXISGROUPS
 		{
-			authorityLimiter
+			targetAngle
 			{
 				axisGroup = None
 				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
 				axisInverted = None
 			}
+			traverseVelocity
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			hingeDamping
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+			servoMotorLimit
+			{
+				axisGroup = None
+				axisIncremental = Pitch, Yaw, Roll, TranslateX, TranslateY, TranslateZ, WheelSteer, WheelThrottle, Custom01, Custom02, Custom03, Custom04
+				axisInverted = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModulePartVariants
+		isEnabled = True
+		useVariantMass = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = wheelMed_4293514980
+	partName = Part
+	persistentId = 3348266785
+	pos = 1.08225501,8.79306507,-0.709813714
+	attPos = 0,0,0
+	attPos0 = 0,0.634826541,0.286366463
+	rot = -5.96046199E-08,3.57627869E-07,1,-7.45058131E-08
+	attRot = -0.99999994,0,0,0
+	attRot0 = -0.499999881,0.50000006,-0.50000006,0.5
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = wheelMed_4293515372
+	srfN = srfAttach,rotoServo.03_4293515096,Rotor
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+}
+PART
+{
+	part = wheelMed_4293514836
+	partName = Part
+	persistentId = 1763742508
+	pos = 1.08225489,8.27563763,-0.709813237
+	attPos = 0,0,0
+	attPos0 = 2.98023224E-08,0.634826422,-0.231060982
+	rot = -5.96046448E-08,1,-3.57627869E-07,-1.59872116E-14
+	attRot = 0,0,0,1
+	attRot0 = 0.50000006,-0.5,-0.5,0.49999994
+	mir = 1,1,1
+	symMethod = Mirror
+	autostrutMode = ForceHeaviest
+	rigidAttachment = False
+	istg = -1
+	resPri = 0
+	dstg = 0
+	sidx = -1
+	sqor = -1
+	sepI = -1
+	attm = 1
+	sameVesselCollision = False
+	modCost = 0
+	modMass = 0
+	modSize = 0,0,0
+	sym = wheelMed_4293515234
+	srfN = srfAttach,rotoServo.03_4293515096,Rotor
+	EVENTS
+	{
+	}
+	ACTIONS
+	{
+	}
+	PARTDATA
+	{
+	}
+	MODULE
+	{
+		name = ModuleWheelBase
+		isEnabled = True
+		wheelType = MOTORIZED
+		isGrounded = False
+		autoFriction = True
+		frictionMultiplier = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			ActAutoFrictionToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSuspension
+		isEnabled = True
+		springTweakable = 1
+		damperTweakable = 1
+		autoSpringDamper = True
+		suspensionPos = (-1, -1, -1)
+		autoBoost = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelSteering
+		isEnabled = True
+		steeringEnabled = True
+		steeringInvert = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			SteeringToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelMotor
+		isEnabled = True
+		autoTorque = True
+		motorEnabled = True
+		motorInverted = False
+		driveLimiter = 100
+		tractionControlScale = 1
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			MotorToggle
+			{
+				actionGroup = None
+			}
+			ActAutoTorqueToggle
+			{
+				actionGroup = None
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelBrakes
+		isEnabled = True
+		brakeTweakable = 100
+		brakeInput = 0
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+			BrakeAction
+			{
+				actionGroup = Brakes
+			}
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleWheelDamage
+		isEnabled = True
+		isDamaged = False
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
+		}
+		UPGRADESAPPLIED
+		{
+		}
+	}
+	MODULE
+	{
+		name = ModuleTestSubject
+		isEnabled = True
+		stagingEnabled = True
+		EVENTS
+		{
+		}
+		ACTIONS
+		{
 		}
 		UPGRADESAPPLIED
 		{
